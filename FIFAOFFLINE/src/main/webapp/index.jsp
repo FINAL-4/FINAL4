@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
 	<div id = "outer" style = "margin: auto; width: 500px; height: 500px; margin-top: 200px; text-align: center">
 		<div><h1>====공지입니다====</h1></div>
@@ -15,11 +16,8 @@
 		<div><h2>경로 : C:\FINAL\FINAL4</h2></div>
 
 
-		
- 나도 간다이이이이잇 		서재우 테스트 테스트 
-정인짱짱
 
-		<h2>난 왜 안돼 제발 아;;</h2>
+		
 
 
 
