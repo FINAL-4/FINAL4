@@ -43,86 +43,127 @@ public class Member {
 		this.status = status;
 		ACount = aCount;
 	}
-
-	String getUserId() {
+	
+	
+	public String getUserId() {
 		return userId;
 	}
 
-	void setUserId(String userId) {
+
+
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
-	String getUserEmail() {
+
+
+	public String getUserEmail() {
 		return userEmail;
 	}
 
-	void setUserEmail(String userEmail) {
+
+
+	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
 
-	String getUserPwd() {
+
+
+	public String getUserPwd() {
 		return userPwd;
 	}
 
-	void setUserPwd(String userPwd) {
+
+
+	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
 	}
 
-	String getName() {
+
+
+	public String getName() {
 		return name;
 	}
 
-	void setName(String name) {
+
+
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	int getBirthDay() {
+
+
+	public int getBirthDay() {
 		return birthDay;
 	}
 
-	void setBirthDay(int birthDay) {
+
+
+	public void setBirthDay(int birthDay) {
 		this.birthDay = birthDay;
 	}
 
-	int getGender() {
+
+
+	public int getGender() {
 		return gender;
 	}
 
-	void setGender(int gender) {
+
+
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
 
-	String getProfile() {
+
+
+	public String getProfile() {
 		return profile;
 	}
 
-	void setProfile(String profile) {
+
+
+	public void setProfile(String profile) {
 		this.profile = profile;
 	}
 
-	String getPhone() {
+
+
+	public String getPhone() {
 		return phone;
 	}
 
-	void setPhone(String phone) {
+
+
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
-	String getStatus() {
+
+
+	public String getStatus() {
 		return status;
 	}
 
-	void setStatus(String status) {
+
+
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	int getACount() {
+
+
+	public int getACount() {
 		return ACount;
 	}
 
-	void setACount(int aCount) {
+
+
+	public void setACount(int aCount) {
 		ACount = aCount;
 	}
+
+
 
 	@Override
 	public String toString() {

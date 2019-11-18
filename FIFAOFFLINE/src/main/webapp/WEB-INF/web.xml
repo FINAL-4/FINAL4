@@ -31,6 +31,7 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
 		<url-pattern>*.me</url-pattern>
+		<url-pattern>*.ma</url-pattern>
 	</servlet-mapping>
 	
 	<!-- 예외처리할 때 작성할 부분 -->

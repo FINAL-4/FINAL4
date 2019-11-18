@@ -158,7 +158,7 @@
 						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">공지    </span></a> 
 						<a class="menu__item" href="#"> <span class="menu__item-name">팀       </span> </a>
 						<a class="menu__item" href="#"> <span class="menu__item-name">용병     </span> </a> 
-						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">매칭     </span></a>
+						<a class="menu__item" href="goMatch.ma" style = "border: none;"> <span class="menu__item-name">매칭     </span></a>
 						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">마이페이지     </span></a>
 						<span><img id = "login-logo" src="resources/images/login-b.png" width="30px;" height="30px;" onclick="document.getElementById('id01').style.display='block'"></span> 
 
