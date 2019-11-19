@@ -123,7 +123,7 @@ button::after {
 
 button:hover {
   color: black;
-  background: lightgrey;
+  background: red;
 }
 
 
@@ -139,6 +139,7 @@ button:hover {
 	width: 100px;
 	height: 50px;
   	overflow: hidden;
+	float: right;
 }
 
 
