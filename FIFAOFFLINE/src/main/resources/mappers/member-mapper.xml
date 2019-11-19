@@ -6,7 +6,7 @@
 		<id property="userId" column="USER_ID"/>
 		<result property="userPwd" column="USER_PWD"/>
 		<result property="name" column="NAME"/>
-		<result property="email" column="USER_EMAIL"/>
+		<result property="userEmail" column="USER_EMAIL"/>
 		<result property="birth" column="BIRTHDAY"/>
 		<result property="gender" column="GENDER"/>
 		<result property="phone" column="PHONE"/>
@@ -17,11 +17,11 @@
   
   
   <select id="loginMember" parameterType="Member" resultMap="memberResultSet">
-  SELECT * 
-  FROM MEMBER
-  WHERE USER_ID=#{userId}
-  AND USER_PWD=#{userPwd}
-  AND STATUS='Y'
+	  SELECT * 
+	  FROM MEMBER
+	  WHERE USER_ID=#{userId}
+	  AND USER_PWD=#{userPwd}
+	  AND STATUS='Y'
   </select>
   
   
