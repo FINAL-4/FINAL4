@@ -55,10 +55,7 @@
 		  position: relative;
 		}
 		
-		img.avatar {
-		  width: 40%;
-		  border-radius: 50%;
-		}
+
 		
 		.container {
 		  padding: 16px;
@@ -135,10 +132,10 @@
 		  }
 		}
 		
-		 #header-logo:hover{
+		/*  #header-logo:hover{
 		 	cursor: pointer;
 		 	content: url("resources/images/logo-w.png");
-		 }
+		 } */
 		
 		#login-logo:hover{
 		 	cursor: pointer;
@@ -155,13 +152,13 @@
 			<div class="ha-header-perspective">
 				<div class="ha-header-front" style = "padding-bottom: 100px; background: whitesmoke;" >
 					<span>
-						<img id = "header-logo" src="resources/images/logo.png" width="200px;" height="70px;" style = "margin-top: 20px;">
+						<img id = "header-logo" src="resources/images/fifalogo1.png" width="280px;" height="70px;" style = "margin-top: 20px;">
 					</span>
 					<nav class="menu menu--ama" style = "margin-bottom: 100px;">
 						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">공지    </span></a> 
 						<a class="menu__item" href="#"> <span class="menu__item-name">팀       </span> </a>
 						<a class="menu__item" href="#"> <span class="menu__item-name">용병     </span> </a> 
-						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">매칭     </span></a>
+						<a class="menu__item" href="goMatch.ma" style = "border: none;"> <span class="menu__item-name">매칭     </span></a>
 						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">마이페이지     </span></a>
 						<span><img id = "login-logo" src="resources/images/login-b.png" width="30px;" height="30px;" onclick="document.getElementById('id01').style.display='block'"></span> 
 
@@ -177,26 +174,30 @@
 
 		<div id="id01" class="modal">
 		  
-		  <form class="modal-content animate" action="/action_page.php" method="post">
-		
+		  <form class="modal-content animate" action="login.me" method="post">
+		<div class="imgcontainer">
+     		 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    	</div>
 		
 		    <div class="container">
-		      <label for="uname"><b>Username</b></label>
-		      <input type="text" placeholder="Enter Username" name="uname" required>
+		      <label for="id"><b>Username</b></label>
+		      <input type="text" placeholder="Enter Username" name="userId" required>
 		
 		      <label for="psw"><b>Password</b></label>
-		      <input type="password" placeholder="Enter Password" name="psw" required>
+		      <input type="password" placeholder="Enter Password" name="userPwd" required>
 		        
-		      <button type="submit">Login</button>
+		      <button id = "loginBtn">Login</button>
 		      <label>
 		        <input type="checkbox" checked="checked" name="remember"> Remember me
 		      </label>
-		    </div>
-		
-		    <div class="container" style="background-color:#f1f1f1">
-		      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
 		      <span class="psw">Forgot <a href="#">password?</a></span>
 		    </div>
+		
+		<script type="text/javascript">
+			
+		</script>
+		    
 		  </form>
 		</div>
 		
