@@ -152,13 +152,14 @@
 			<div class="ha-header-perspective">
 				<div class="ha-header-front" style = "padding-bottom: 100px; background: whitesmoke;" >
 					<span>
-						<img id = "header-logo" src="resources/images/fifalogo1.png" width="280px;" height="70px;" style = "margin-top: 20px;">
+						<img id = "header-logo" src="resources/images/fifalogo1.png" width="280px;" height="70px;" onclick = "location.href='home.do'" style = "margin-top: 20px; cursor: pointer">
 					</span>
 					<nav class="menu menu--ama" style = "margin-bottom: 100px;">
 						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">공지    </span></a> 
 						<a class="menu__item" href="#"> <span class="menu__item-name">팀       </span> </a>
-						<a class="menu__item" href="#"> <span class="menu__item-name">용병     </span> </a> 
-						<a class="menu__item" href="goMatch.ma" style = "border: none;"> <span class="menu__item-name">매칭     </span></a>
+						<a class="menu__item" href="playerMain.ma" id = "playerMenu" style = "border:none;"> <span class="menu__item-name">용병     </span> </a> 
+						<a class="menu__item" href="goMatch.ma" style = "border: none;"> <span class="menu__item-name">매칭     </span></a
+						>
 						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">마이페이지     </span></a>
 						<span><img id = "login-logo" src="resources/images/login-b.png" width="30px;" height="30px;" onclick="document.getElementById('id01').style.display='block'"></span> 
 
