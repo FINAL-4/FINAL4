@@ -132,10 +132,10 @@
 		  }
 		}
 		
-		 #header-logo:hover{
+		/*  #header-logo:hover{
 		 	cursor: pointer;
 		 	content: url("resources/images/logo-w.png");
-		 }
+		 } */
 		
 		#login-logo:hover{
 		 	cursor: pointer;
@@ -152,7 +152,7 @@
 			<div class="ha-header-perspective">
 				<div class="ha-header-front" style = "padding-bottom: 100px; background: whitesmoke;" >
 					<span>
-						<img id = "header-logo" src="resources/images/logo.png" width="200px;" height="70px;" style = "margin-top: 20px;">
+						<img id = "header-logo" src="resources/images/fifalogo1.png" width="280px;" height="70px;" style = "margin-top: 20px;">
 					</span>
 					<nav class="menu menu--ama" style = "margin-bottom: 100px;">
 						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">공지    </span></a> 
