@@ -12,7 +12,7 @@ public class PlayerController {
 	@Autowired
 	private PlayerService pService;
 	
-	@RequestMapping
+	@RequestMapping("playerMain.ma")
 	public String goMatching() {
 		return "player/applyDetailPlayer";
 	}

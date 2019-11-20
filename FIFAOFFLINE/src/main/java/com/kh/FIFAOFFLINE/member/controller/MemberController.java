@@ -32,9 +32,14 @@ public class MemberController {
 		if(loginUser !=null) {
 			session.setAttribute("loginUser", loginUser);
 		}else {
-			throw new  MemberException("�α��ν���");
+			throw new  MemberException("로그인실패");
 		}
 		
+		return "home";
+	}
+	@RequestMapping(value = "logout.me",method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
 		return "home";
 	}
 }
