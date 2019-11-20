@@ -470,17 +470,7 @@ a.demo--current {
 	line-height: 1.5;
 }
 
-button {
-	border: none;
-	padding: 0.6em 1.2em;
-	color: #fff;
-	font-size: 1em;
-	letter-spacing: 1px;
-	cursor: pointer;
-	display: inline-block;
-	margin: 3px 2px;
-	border-radius: 2px;
-}
+
 
 
 .info {
