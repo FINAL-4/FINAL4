@@ -142,6 +142,7 @@
 		 
 		 	content: url("resources/images/login-g.png");
 		 }
+
 		</style>	
 	</head>
 	<body>
@@ -156,7 +157,7 @@
 					</span>
 					<nav class="menu menu--ama" style = "margin-bottom: 100px;">
 						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">공지    </span></a> 
-						<a class="menu__item" href="#"> <span class="menu__item-name">팀       </span> </a>
+						<a class="menu__item" href="tlist.tm" id="teamMenu"> <span class="menu__item-name">팀       </span> </a>
 						<a class="menu__item" href="#"> <span class="menu__item-name">용병     </span> </a> 
 						<a class="menu__item" href="goMatch.ma" style = "border: none;"> <span class="menu__item-name">매칭     </span></a>
 						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">마이페이지     </span></a>
@@ -170,7 +171,7 @@
 
 
 
-		<button  style="width:auto;">Login</button>
+		
 
 		<div id="id01" class="modal">
 		  
