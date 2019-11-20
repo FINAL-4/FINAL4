@@ -86,6 +86,7 @@ td{
 			</tr>
 			<tr>
 				<td> &nbsp;&nbsp;&nbsp;모집내용받아오기</td>
+				<td> commit 이 안됨
 			</tr>
 		</table>
 		</div>
