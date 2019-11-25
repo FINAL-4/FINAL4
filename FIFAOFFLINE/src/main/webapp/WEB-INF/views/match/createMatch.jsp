@@ -4,8 +4,89 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  var $$ = jQuery.noConflict();
+</script>
+<script src='resources/js/moment.min.js'></script>
+<script src='resources/js/fullcalendar.min.js'></script>
+<script src='resources/js/gcal.min.js'></script>
+
+<!-- locale = ko ==> 한글로 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/ko.js'></script>
+  
+<!-- CSS 파일 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" type='text/css' rel='stylesheet'/>
+
+
+
 <title>Insert title here</title>
+
+
+
+<script type="text/javascript">
+	$$(function(){
+		$$("#calendar").fullCalendar({
+			navLinkDayClick: function(){
+				return false;
+			},
+			selectable: true,
+			header : {
+				left : 'prev,next',
+				center : 'title',
+				right : 'today,addScheduleBtn' 
+			},
+			select: function(startDate ,endDate){
+				console.log(startDate.format(), endDate.format());
+				sDate = startDate.format();
+				eDate = endDate.format();
+				$$("#dayInfo").html(sDate);
+				$("#calendar").fullCalendar("refetchEvents");
+				
+ 			}
+		});
+	});
+	
+
+
+</script>
+
 <style>
+
+#map{
+	width: 400px;
+	height: 400px;
+	margin-top: 4%;
+	margin-left: 10%;
+}
+
+
+#calendar{
+	width: 30%;
+	height: 100%;
+	margin-top: 4%;
+	margin-left: 10%;
+}
+
+.fc-basic-view .fc-body .fc-row {
+    min-height: 1em;
+}
+
+.fc-today-button{
+	width: 50px;
+	height: 20px;
+
+}
+
+.fc-button-group{
+	width: 30px;
+	height: 5px;
+}
+
+.fc button, .fc table, body .fc {
+    font-size: 12px;
+}
+
 body{
   overflow-x: hidden;
 }
@@ -88,7 +169,7 @@ body{
 .contents{
 
 	width : 100%;
-	height: 500px;
+	height: 80%;
 }
 
 button,
@@ -128,7 +209,6 @@ button:hover {
 
 
 .btns{
-	align-items: right;
 	width: 100%;
 	height: 20%;
 }
@@ -158,6 +238,70 @@ button:hover {
   height: 100%;
   width: 135%;
 }
+
+
+#timeInfoTable{
+	width: 500px;
+	height: 100%;
+}
+
+#timeInfoTable td{
+	border-bottom: 3px solid lightgrey;
+}
+
+li{
+   list-style:none;
+   border-bottom: 0.3px soild lightgrey;
+}
+
+.item{
+	width: 100%;
+	height: 10px;
+	margin: 0px;
+	padding: 0px;
+
+}
+
+.info h5{
+	margin: 0px;
+	padding: 0px;
+}
+
+.info {
+    text-align: left;
+    margin-top: 0em;
+    clear: both;
+    padding: 3em 0;
+    opacity: 0.7;
+    color: #aca89a;
+}
+
+#infoTable td{
+	border-bottom: 3px solid lightgrey;
+	height: 80px;
+}
+
+#placesList td{
+	height: 10px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#placesList tr:hover{
+	background: whitesmoke;
+	cursor: pointer;
+}
+
+#placeInfoTable{
+	width: 700px;
+	height: 100%;
+}
+
+#placeInfoTable td{
+	border-bottom: 3px solid lightgrey;
+}
+
+
 
 </style>
 </head>
@@ -210,6 +354,46 @@ button:hover {
 								<div class="res-step-form col-md-8 col-md-offset-2 res-form-one" style = "border: 3px solid red; width: 80%; height: 570px;">
 									<form class="form-horizontal">
 										<div class = "contents">
+											<div id = "infoTable" style = "width: 50%; margin-left: 25%; margin-right: 25%; margin-top: 5%;">
+												<table >
+												<tr>
+														<td style = "width: 40%;">매치 제목</td>
+														<td style = "width: 60%;">
+															<input type = "text" style = "width: 400px;">
+														</td>
+													</tr>
+													<tr>
+														<td>팀 선택</td>
+														<td>
+															<select style = "width: 100%;">
+																<option>팀1</option>
+																<option>팀2</option>
+																<option>팀3</option>
+															</select>
+														</td>
+													</tr>
+													<tr>
+														<td>매치 유형</td>
+														<td>
+															<select style = "width: 100%;">
+																<option value = "5 VS 5">5 VS 5</option>
+																<option value = "6 VS 6">6 VS 6</option>
+																<option value = "7 VS 7">7 VS 7</option>
+																<option value = "8 VS 8">8 VS 8</option>
+																<option value = "9 VS 9">9 VS 9</option>
+																<option value = "10 VS 10">10 VS 10</option>
+																<option value = "11 VS 11">11 VS 11</option>
+															</select>
+														</td>
+													</tr>
+													<tr>
+														<td>회비</td>
+														<td>
+															<input id ="dues" onkeyup="checkNumber(this);" type = "text" maxlength="7">
+														</td>
+													</tr>
+												</table>
+											</div>
 										</div>
 										<div class = "btns">
 											<button type="button"
@@ -222,7 +406,35 @@ button:hover {
 								<div class="res-step-form col-md-8 col-md-offset-2 res-form-two" style = "border: 3px solid green; width: 80%; height: 570px;">
 									<form class="form-horizontal">
 										<div class = "contents">
+											<div id = "map"  style = "display: inline-block;">
+											
+											</div>
+						
+											<div id = "placeInfo" style = "display: inline-block; margin-left: 10%;">
+											
+												<table id = "placeInfoTable" style = "border: none;">
+													<tr>
+														<td colspan="3">
+															<div id= "menu_wrap" style = "font-size: 1px;">
+																<table id="placesList" style = "margin: 0px; text-align: left"></table>
+			        											<div id="pagination" style = "font-size: 30px; text-align: center"></div>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td style = "width: 30%"><input id = "keyword" type = "text" value = "강남역" style = "margin: 0px; padding: 0px; font-size: 20px;"></td>
+														<!-- <td style = "width: 40%"><button id = "searchLocation" onclick = "searchPlaces(); return false;">검색하기</button></td> -->
+														<td style = "width: 20%"><img id = "searchLocation" onclick = "searchPlaces(); return false;" src="resources/images/search.jpg" width="50px;" height="50px;"></td>
+														<td style = "width: 60%">
+															<h3 id = "cplace">장소가 선택되지 않았습니다.</h3>
+														</td>
+													</tr>
+												</table>
+												<br><br><br><br><br>
+											</div>
 										</div>
+										
+										
 										<div class = "btns">
 											<button type="button"
 												class="btn btn-default btn res-btn-gray"
@@ -237,6 +449,68 @@ button:hover {
 								<div class="res-step-form col-md-8 col-md-offset-2 res-form-three" style = "border: 3px solid blue; width: 80%; height: 570px;">
 									<form class="form-horizontal">
 										<div class = "contents">
+											
+											<div id = "calendar" style = "display: inline-block;">
+												　
+											</div>
+											
+											<div id = "timeInfo" style = "display: inline-block; margin-left: 10%;">
+											
+												<table id = "timeInfoTable" style = "border: none;">
+													<tr>
+														<td style = "width: 30%"><h4>날짜</h4></td>
+														<td style = "width: 40%"><h4 id = "dayInfo">날짜를 선택하세요.</h4></td>
+														<td style = "width: 40%"></td>
+													</tr>
+													<tr>
+														<td><h4>시작 시간</h4></td>
+														<td>
+															<select>
+																<%for(int i = 0 ; i<10 ; i++){ %>
+																<option value = "0<%=i%>">0<%=i%></option>
+																<%}%>
+																<%for(int i = 10 ; i<25 ; i++){ %>
+																<option value = "<%=i%>"><%=i%></option>
+																<%}%>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option value = "00">00</option>
+																<option value = "10">10</option>
+																<option value = "20">20</option>
+																<option value = "30">30</option>
+																<option value = "40">40</option>
+																<option value = "50">50</option>
+															</select>
+														</td>
+													</tr>
+													<tr>
+														<td><h4>종료 시간</h4></td>
+														<td>
+															<select>
+																<%for(int i = 0 ; i<10 ; i++){ %>
+																<option value = "0<%=i%>">0<%=i%></option>
+																<%}%>
+																<%for(int i = 10 ; i<25 ; i++){ %>
+																<option value = "<%=i%>"><%=i%></option>
+																<%}%>
+															</select>
+														</td>
+														<td>
+															<select>
+																<option value = "00">00</option>
+																<option value = "10">10</option>
+																<option value = "20">20</option>
+																<option value = "30">30</option>
+																<option value = "40">40</option>
+																<option value = "50">50</option>
+															</select>
+														</td>
+													</tr>
+												</table>
+												<br><br><br><br><br>
+											</div>
 										</div>
 										<div class = "btns">		
 											<button type="button"
@@ -251,7 +525,11 @@ button:hover {
 
 								<div class="res-step-form col-md-8 col-md-offset-2 res-form-four" style = "border: 3px solid yellow; width: 80%; height: 570px;">
 									<form class="form-horizontal">
-										<div class = "contents">
+										<div class = "contents" style = "margin-left: 25%; margin-right: 25%;">
+											<h2 style = "margin-top: 5%;">남기는말</h2>
+											<textarea rows="10" cols="80" style = "margin-top: 2%;  resize: none;" value ="" ></textarea>
+										
+										
 										</div>
 										<div class = "btns">
 											<button type="button"
@@ -272,9 +550,272 @@ button:hover {
 	</div>
 
 
+	<!-- 카카오 맵 -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e5f9f6250199748b3a23d7b3d7d88dde&libraries=services"></script>
+	<script>
+// 마커를 담을 배열입니다
+var markers = [];
+
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = {
+        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };  
+
+// 지도를 생성합니다    
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+// 장소 검색 객체를 생성합니다
+var ps = new kakao.maps.services.Places();  
+
+// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
+var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+
+// 키워드로 장소를 검색합니다
+searchPlaces();
+
+// 키워드 검색을 요청하는 함수입니다
+function searchPlaces() {
+
+    var keyword = document.getElementById('keyword').value;
+
+    if (!keyword.replace(/^\s+|\s+$/g, '')) {
+        alert('키워드를 입력해주세요!');
+        return false;
+    }
+
+    // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+    ps.keywordSearch( keyword, placesSearchCB); 
+}
+
+// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+function placesSearchCB(data, status, pagination) {
+    if (status === kakao.maps.services.Status.OK) {
+
+        // 정상적으로 검색이 완료됐으면
+        // 검색 목록과 마커를 표출합니다
+        displayPlaces(data);
+
+        // 페이지 번호를 표출합니다
+        displayPagination(pagination);
+
+    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+
+        alert('검색 결과가 존재하지 않습니다.');
+        return;
+
+    } else if (status === kakao.maps.services.Status.ERROR) {
+
+        alert('검색 결과 중 오류가 발생했습니다.');
+        return;
+
+    }
+}
+
+// 검색 결과 목록과 마커를 표출하는 함수입니다
+function displayPlaces(places) {
+
+    var listEl = document.getElementById('placesList'), 
+    menuEl = document.getElementById('menu_wrap'),
+    fragment = document.createDocumentFragment(), 
+    bounds = new kakao.maps.LatLngBounds(), 
+    listStr = '';
+    
+    // 검색 결과 목록에 추가된 항목들을 제거합니다
+    removeAllChildNods(listEl);
+
+    // 지도에 표시되고 있는 마커를 제거합니다
+    removeMarker();
+    
+    for ( var i=0; i<places.length; i++ ) {
+
+        // 마커를 생성하고 지도에 표시합니다
+        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+            marker = addMarker(placePosition, i), 
+            itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        // LatLngBounds 객체에 좌표를 추가합니다
+        bounds.extend(placePosition);
+
+        // 마커와 검색결과 항목에 mouseover 했을때
+        // 해당 장소에 인포윈도우에 장소명을 표시합니다
+        // mouseout 했을 때는 인포윈도우를 닫습니다
+        (function(marker, title) {
+            kakao.maps.event.addListener(marker, 'mouseover', function() {
+                displayInfowindow(marker, title);
+            });
+
+            kakao.maps.event.addListener(marker, 'mouseout', function() {
+                infowindow.close();
+            });
+
+            itemEl.onmouseover =  function () {
+                displayInfowindow(marker, title);
+            };
+
+            itemEl.onmouseout =  function () {
+                infowindow.close();
+            };
+        })(marker, places[i].place_name);
+
+        fragment.appendChild(itemEl);
+    }
+
+    // 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
+    listEl.appendChild(fragment);
+    menuEl.scrollTop = 0;
+
+    // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+    map.setBounds(bounds);
+}
+
+// 검색결과 항목을 Element로 반환하는 함수입니다
+function getListItem(index, places) {
+
+    var el = document.createElement('tr'),
+    itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
+                '<td class="info" style ="width:400px;">' +
+                '   <h5>' + places.place_name + '</h5></td>';
+
+    if (places.road_address_name) {
+        itemStr += '    <td><span>' + places.road_address_name + '</span>' +
+                    '   <span class="jibun gray">' +  places.address_name  + '</span>';
+    } else {
+        itemStr += '    <td><span>' +  places.address_name  + '</span>'; 
+    }
+                 
+      itemStr += '  <span class="tel">' + places.phone  + '</span>' +
+                '</td>';           
+
+    el.innerHTML = itemStr;
+    el.className = 'item';
+	el.onclick = function (){
+		$$("#cplace").html(places.place_name);
+		
+	}
+	
+	
+	
+	
+	
+    return el;
+}
+
+
+
+
+// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+function addMarker(position, idx, title) {
+    var imageSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+        imageSize = new kakao.maps.Size(36, 37),  // 마커 이미지의 크기
+        imgOptions =  {
+            spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
+            spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+            offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+        },
+        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
+            marker = new kakao.maps.Marker({
+            position: position, // 마커의 위치
+            image: markerImage 
+        });
+
+    marker.setMap(map); // 지도 위에 마커를 표출합니다
+    markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+
+    return marker;
+}
+
+// 지도 위에 표시되고 있는 마커를 모두 제거합니다
+function removeMarker() {
+    for ( var i = 0; i < markers.length; i++ ) {
+        markers[i].setMap(null);
+    }   
+    markers = [];
+}
+
+// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
+function displayPagination(pagination) {
+    var paginationEl = document.getElementById('pagination'),
+        fragment = document.createDocumentFragment(),
+        i; 
+
+    // 기존에 추가된 페이지번호를 삭제합니다
+    while (paginationEl.hasChildNodes()) {
+        paginationEl.removeChild (paginationEl.lastChild);
+    }
+
+    for (i=1; i<=pagination.last; i++) {
+        var el = document.createElement('a');
+        el.href = "#";
+        el.innerHTML = i;
+
+        if (i===pagination.current) {
+            el.className = 'on';
+        } else {
+            el.onclick = (function(i) {
+                return function() {
+                    pagination.gotoPage(i);
+                }
+            })(i);
+        }
+
+        fragment.appendChild(el);
+    }
+    paginationEl.appendChild(fragment);
+}
+
+// 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
+// 인포윈도우에 장소명을 표시합니다
+function displayInfowindow(marker, title) {
+    var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+
+    infowindow.setContent(content);
+    infowindow.open(map, marker);
+}
+
+ // 검색결과 목록의 자식 Element를 제거하는 함수입니다
+function removeAllChildNods(el) {   
+    while (el.hasChildNodes()) {
+        el.removeChild (el.lastChild);
+    }
+}
+</script>
+
+
+
+<script type="text/javascript">
+	function checkNumber(num) { 
+		num.value = comma(uncomma(num.value)); 
+	}
+	
+	function comma(str) { 
+		str = String(str); 
+		return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,'); 
+	} 
+	
+	function uncomma(str) { 
+		str = String(str); 
+		return str.replace(/[^\d]+/g, ''); 
+	}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<script type="text/javascript">
-
 $(document).ready(function(){
 	var steps = ['.res-step-one','.res-step-two','.res-step-three','.res-step-four'];
 		var i = 1;
@@ -383,6 +924,14 @@ $(document).ready(function(){
 	});
 
 </script>
+
+
+
+
+
+
+
+
 
 
 
