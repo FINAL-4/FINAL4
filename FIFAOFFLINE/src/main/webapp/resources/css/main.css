@@ -630,10 +630,7 @@ select:-webkit-autofill:focus {
  * ------------------------------------------------------------------- */
 .button,
 a.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+button {
   display: inline-block;
   font-family: "montserrat-bold", sans-serif;
   font-size: 1.4rem;
