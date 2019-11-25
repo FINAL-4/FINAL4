@@ -61,11 +61,13 @@
 		  padding: 16px;
 		}
 		
-		span.psw {
+		span.find {
 		  float: right;
-		  padding-top: 16px;
+		  /* padding-top: 16px; */
 		}
-		
+		span.join{
+		float: right;
+		}
 		/* The Modal (background) */
 		.modal {
 		  display: none; /* Hidden by default */
@@ -123,25 +125,17 @@
 		
 		/* Change styles for span and cancel button on extra small screens */
 		@media screen and (max-width: 300px) {
-		  span.psw {
+		  span.find {
 		     display: block;
 		     float: none;
 		  }
-		  .cancelbtn {
-		     width: 100%;
+		  span.join{
+		  display: block;
+		  float :none;
 		  }
 		}
 		
-		/*  #header-logo:hover{
-		 	cursor: pointer;
-		 	content: url("resources/images/logo-w.png");
-		 } */
-		
-		#login-logo:hover{
-		 	cursor: pointer;
-		 
-		 	content: url("resources/images/login-g.png");
-		 }
+
 		</style>	
 	</head>
 	<body>
@@ -156,10 +150,10 @@
 					</span>
 					<nav class="menu menu--ama" style = "margin-bottom: 100px;">
 						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">공지    </span></a> 
-						<a class="menu__item" href="#"> <span class="menu__item-name">팀       </span> </a>
+						<a class="menu__item" href="tlist.tm" id="teamMenu"> <span class="menu__item-name">팀       </span> </a>
 						<a class="menu__item" href="playerMain.ma" id = "playerMenu" style = "border:none;"> <span class="menu__item-name">용병     </span> </a> 
-						<a class="menu__item" href="goMatch.ma" style = "border: none;"> <span class="menu__item-name">매칭     </span></a
-						>
+						<a class="menu__item" href="goMatch.ma" style = "border: none;"> <span class="menu__item-name">매칭     </span></a>
+
 						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">마이페이지     </span></a>
 						<span><img id = "login-logo" src="resources/images/login-b.png" width="30px;" height="30px;" onclick="document.getElementById('id01').style.display='block'"></span> 
 
@@ -171,7 +165,7 @@
 
 
 
-		<button  style="width:auto;">Login</button>
+		
 
 		<div id="id01" class="modal">
 		  
@@ -192,7 +186,10 @@
 		      <label>
 		        <input type="checkbox" checked="checked" name="remember"> Remember me
 		      </label>
-		      <span class="psw">Forgot <a href="#">password?</a></span>
+		      <span class="join">회원이아니신가요? <a href="goJoin.me">회원가입하러가기</a></span>
+		      </div>
+		     <div>
+		      <span class="find">비밀번호를 잊으셨나요? <a href="find.me">비밀번호 찾으러가기</a></span>
 		    </div>
 		
 		<script type="text/javascript">
