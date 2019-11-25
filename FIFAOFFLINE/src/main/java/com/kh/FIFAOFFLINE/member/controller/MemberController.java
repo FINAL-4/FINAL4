@@ -22,6 +22,16 @@ public class MemberController {
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
 	
+	@RequestMapping("goJoin.me")
+	public String goJoinMember() {
+		
+		return "member/memberJoinForm";
+	}
+	@RequestMapping("find.me")
+	public String findIP() {
+	return "member/findIdPwd";
+	}
+	
 	@RequestMapping(value = "login.me", method = RequestMethod.POST)
 	public String memberLogin(Member m,HttpSession session) {
 		System.out.println(m);

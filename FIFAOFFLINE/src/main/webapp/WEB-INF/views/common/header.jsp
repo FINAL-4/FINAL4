@@ -61,11 +61,13 @@
 		  padding: 16px;
 		}
 		
-		span.psw {
+		span.find {
 		  float: right;
-		  padding-top: 16px;
+		  /* padding-top: 16px; */
 		}
-		
+		span.join{
+		float: right;
+		}
 		/* The Modal (background) */
 		.modal {
 		  display: none; /* Hidden by default */
@@ -123,12 +125,13 @@
 		
 		/* Change styles for span and cancel button on extra small screens */
 		@media screen and (max-width: 300px) {
-		  span.psw {
+		  span.find {
 		     display: block;
 		     float: none;
 		  }
-		  .cancelbtn {
-		     width: 100%;
+		  span.join{
+		  display: block;
+		  float :none;
 		  }
 		}
 		
@@ -137,11 +140,11 @@
 		 	content: url("resources/images/logo-w.png");
 		 } */
 		
-		#login-logo:hover{
+		/* #login-logo:hover{
 		 	cursor: pointer;
 		 
 		 	content: url("resources/images/login-g.png");
-		 }
+		 } */
 		</style>	
 	</head>
 	<body>
@@ -192,7 +195,10 @@
 		      <label>
 		        <input type="checkbox" checked="checked" name="remember"> Remember me
 		      </label>
-		      <span class="psw">Forgot <a href="#">password?</a></span>
+		      <span class="join">회원이아니신가요? <a href="goJoin.me">회원가입하러가기</a></span>
+		      </div>
+		     <div>
+		      <span class="find">비밀번호를 잊으셨나요? <a href="find.me">비밀번호 찾으러가기</a></span>
 		    </div>
 		
 		<script type="text/javascript">
