@@ -68,7 +68,37 @@
 		span.join{
 		float: right;
 		}
-		/* The Modal (background) */
+		
+		
+		/* Add Zoom Animation */
+		.animate {
+		  -webkit-animation: animatezoom 0.6s;
+		  animation: animatezoom 0.6s
+		}
+		
+		@-webkit-keyframes animatezoom {
+		  from {-webkit-transform: scale(0)} 
+		  to {-webkit-transform: scale(1)}
+		}
+		  
+		@keyframes animatezoom {
+		  from {transform: scale(0)} 
+		  to {transform: scale(1)}
+		}
+		
+		/* Change styles for span and cancel button on extra small screens */
+		@media screen and (max-width: 300px) {
+		  span.find {
+		     display: block;
+		     float: none;
+		  }
+		  span.join{
+		  display: block;
+		  float :none;
+		  }
+		}
+		
+/* The Modal (background) */
 		.modal {
 		  display: none; /* Hidden by default */
 		  position: fixed; /* Stay in place */
@@ -106,36 +136,6 @@
 		  color: red;
 		  cursor: pointer;
 		}
-		
-		/* Add Zoom Animation */
-		.animate {
-		  -webkit-animation: animatezoom 0.6s;
-		  animation: animatezoom 0.6s
-		}
-		
-		@-webkit-keyframes animatezoom {
-		  from {-webkit-transform: scale(0)} 
-		  to {-webkit-transform: scale(1)}
-		}
-		  
-		@keyframes animatezoom {
-		  from {transform: scale(0)} 
-		  to {transform: scale(1)}
-		}
-		
-		/* Change styles for span and cancel button on extra small screens */
-		@media screen and (max-width: 300px) {
-		  span.find {
-		     display: block;
-		     float: none;
-		  }
-		  span.join{
-		  display: block;
-		  float :none;
-		  }
-		}
-		
-
 		</style>	
 	</head>
 	<body>
@@ -171,7 +171,7 @@
 		  
 		  <form class="modal-content animate" action="login.me" method="post">
 		<div class="imgcontainer">
-     		 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+     		 <span class="close">&times;</span>
       
     	</div>
 		
@@ -192,15 +192,14 @@
 		      <span class="find">비밀번호를 잊으셨나요? <a href="find.me">비밀번호 찾으러가기</a></span>
 		    </div>
 		
-		<script type="text/javascript">
-			
-		</script>
+		
 		    
 		  </form>
 		</div>
 		
 		<script>
 		// Get the modal
+		
 		var modal = document.getElementById('id01');
 		
 		// When the user clicks anywhere outside of the modal, close it
@@ -209,7 +208,11 @@
 		        modal.style.display = "none";
 		    }
 		}
+		$(".close").click(function(){
+			modal.style.display="none";
+		});
 		</script>
+		
 		
 
 		<script src="resources/js/jquery-2.1.3.min.js"></script>

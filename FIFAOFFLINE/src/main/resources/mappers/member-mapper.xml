@@ -12,6 +12,8 @@
 		<result property="phone" column="PHONE"/>
 		<result property="address" column="ADDRESS"/>
 		<result property="status" column="STATUS"/>
+		<result property="joinDate" column="JOINDATE"/>
+		<result property="aCount" column="A_COUNT"/>
 		<!-- 변수명 디비값 -->
   </resultMap>
   

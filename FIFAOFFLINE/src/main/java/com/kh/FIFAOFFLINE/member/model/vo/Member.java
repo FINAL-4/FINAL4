@@ -11,16 +11,18 @@ public class Member {
 	private int birthDay;
 	private String gender;
 	private	String profile;
-	private String phone;	
+	private String address;
+	private String phone;
 	private String status;
 	private int aCount;
+	private Date joinDate;
 	
 	public Member() {
 		super();
 	}
 
 	public Member(String userId, String userEmail, String userPwd, String name, int birthDay, String gender,
-			String profile, String phone, String status, int aCount) {
+			String profile, String address, String phone, String status, int aCount, Date joinDate) {
 		super();
 		this.userId = userId;
 		this.userEmail = userEmail;
@@ -29,9 +31,11 @@ public class Member {
 		this.birthDay = birthDay;
 		this.gender = gender;
 		this.profile = profile;
+		this.address = address;
 		this.phone = phone;
 		this.status = status;
 		this.aCount = aCount;
+		this.joinDate = joinDate;
 	}
 
 	public String getUserId() {
@@ -90,6 +94,14 @@ public class Member {
 		this.profile = profile;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public String getPhone() {
 		return phone;
 	}
@@ -114,12 +126,22 @@ public class Member {
 		this.aCount = aCount;
 	}
 
+	public Date getJoinDate() {
+		return joinDate;
+	}
+
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
+	}
+
 	@Override
 	public String toString() {
 		return "Member [userId=" + userId + ", userEmail=" + userEmail + ", userPwd=" + userPwd + ", name=" + name
-				+ ", birthDay=" + birthDay + ", gender=" + gender + ", profile=" + profile + ", phone=" + phone
-				+ ", status=" + status + ", aCount=" + aCount + "]";
+				+ ", birthDay=" + birthDay + ", gender=" + gender + ", profile=" + profile + ", address=" + address
+				+ ", phone=" + phone + ", status=" + status + ", aCount=" + aCount + ", joinDate=" + joinDate + "]";
 	}
+
+	
 
 	
 	
