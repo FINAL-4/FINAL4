@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -149,7 +150,8 @@
 						<img id = "header-logo" src="resources/images/fifalogo1.png" width="280px;" height="70px;" onclick = "location.href='home.do'" style = "margin-top: 20px; cursor: pointer">
 					</span>
 					<nav class="menu menu--ama" style = "margin-bottom: 100px;">
-						<a class="menu__item" href="#" style = "border: none;"> <span class="menu__item-name">공지    </span></a> 
+						<!-- <a class="menu__item" href="nlist.do" style = "border: none;"> <span class="menu__item-name">공지    </span></a> -->
+						<a class="menu__item" href="${nlist}" style = "border: none;"> <span class="menu__item-name">공지    </span></a>  
 						<a class="menu__item" href="tlist.tm" id="teamMenu"> <span class="menu__item-name">팀       </span> </a>
 						<a class="menu__item" href="playerMain.ma" id = "playerMenu" style = "border:none;"> <span class="menu__item-name">용병     </span> </a> 
 						<a class="menu__item" href="goMatch.ma" style = "border: none;"> <span class="menu__item-name">매칭     </span></a>

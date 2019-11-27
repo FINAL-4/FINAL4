@@ -15,7 +15,7 @@ public class NoticeServiceImpl implements NoticeService{
 	NoticeDao nDao;
 
 	@Override
-	public ArrayList<Notice> selectList() {
+	public ArrayList<Notice> selectList() { 
 		
 		return nDao.selectList();
 	}
@@ -27,7 +27,7 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 
 	@Override
-	public Notice selectOne(int nId) {
+	public Notice selectOne(int nId) { 
 		
 		return nDao.selectOne(nId);
 	}
