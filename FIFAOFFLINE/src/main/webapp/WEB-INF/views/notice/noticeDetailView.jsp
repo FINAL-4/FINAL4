@@ -1,14 +1,30 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ page session="false" %> 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
 	<jsp:include page="../common/header.jsp"/>	
+<body>
+		<div id = "outer" style = "margin-top: 180px;">
+			<div class="ha-waypoint" data-animate-down="ha-header-show" data-animate-up="ha-header-subshow" style ="width: 90%; margin: auto;">
+		<div style="height:100%; width:100%; border-bottom:3px solid red;">
+			<div class="example">
+			<br><br><br>
+		</div>
+			</div>
+			<br>
+			<div class="ha-waypoint" data-animate-down="ha-header-shrink" data-animate-up="ha-header-show" style = "height: 1200px; width: 90%;  margin: auto;">
+			<div align="center">
+
+
+	
+	<br><br>	
+
 	
 	<h1 align="center">${notice.nId }번 글 상세 보기</h1>
 	
@@ -67,10 +83,36 @@
 	</table>
 	<!-- 일단은 여기까지 하고 공지사항 글쓰기를 완성해보자 noticeListView로 ㄱㄱ-->
 	
+	<script>
+	var $head = $( '#ha-header' );
+	$( '.ha-waypoint' ).each( function(i) {
+		var $el = $( this ),
+			animClassDown = $el.data( 'animateDown' ),
+			animClassUp = $el.data( 'animateUp' );
 	
-	
-	
-	
-	
+		$el.waypoint( function( direction ) {
+			if( direction === 'down' && animClassDown ) {
+				$head.attr('class', 'ha-header ' + animClassDown);
+			}
+			else if( direction === 'up' && animClassUp ){
+				$head.attr('class', 'ha-header ' + animClassUp);
+			}
+		}, { offset: '100%' } );
+	});
+</script>
+<script>
+	function tdetail(id){
+		alert($(".hiddenTno"+id).val());
+	}
+</script>
+<script>
+	$(document).ready( function() {
+		$(".addressB").click(function(){
+			$(this).toggleClass('clicked');
+		});
+	});
+</script>
+<jsp:include page="../common/footer.jsp"/>	
+
 </body>
 </html>

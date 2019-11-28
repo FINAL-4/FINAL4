@@ -2,20 +2,35 @@ package com.kh.FIFAOFFLINE.notice.controller;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonIOException;
 import com.kh.FIFAOFFLINE.notice.model.exception.NoticeException;
 import com.kh.FIFAOFFLINE.notice.model.service.NoticeService;
 import com.kh.FIFAOFFLINE.notice.model.vo.Notice;
+import com.kh.FIFAOFFLINE.notice.model.vo.PageInfo;
+import com.kh.FIFAOFFLINE.common.Pagination;
+import com.kh.FIFAOFFLINE.member.model.vo.Member;
+import com.kh.FIFAOFFLINE.notice.model.exception.NoticeException;
+
+
 
 @Controller
 public class NoticeController {
@@ -32,13 +47,24 @@ public class NoticeController {
 	NoticeService nService;
 	
 	@RequestMapping("nlist.do")
-	public ModelAndView noticeList(ModelAndView mv) {
+	public ModelAndView noticeList(ModelAndView mv,
+									@RequestParam(value="page", required=false)Integer page) {
 		
-		ArrayList<Notice> list = nService.selectList();
-//		System.out.println(list);
+		int currentPage = 1;
+		if(page != null) {
+			currentPage = page;
+		}
 		
-		if(list != null) {
+		int listCount = nService.getListCount();
+		
+		
+		PageInfo pi = Pagination.getPageInfo(currentPage, listCount);
+		
+		ArrayList<Notice> list = nService.selectList(pi);
+	
+		if(list != null && list.size() > 0) {
 			mv.addObject("list",list);
+			mv.addObject("pi",pi);
 			mv.setViewName("notice/noticeListView");
 			
 		}else {
@@ -79,7 +105,7 @@ public class NoticeController {
 			String savePath = saveFile(file, request);
 			
 			if(savePath != null) {	// 파일이 잘 저장된 경우
-				n.setFilePath(file.getOriginalFilename());
+				n.setFilePath(file.getOriginalFilename()); 
 			}
 		}
 		

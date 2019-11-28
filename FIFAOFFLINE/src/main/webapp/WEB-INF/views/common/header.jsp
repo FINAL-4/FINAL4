@@ -151,7 +151,7 @@
 					</span>
 					<nav class="menu menu--ama" style = "margin-bottom: 100px;">
 						<!-- <a class="menu__item" href="nlist.do" style = "border: none;"> <span class="menu__item-name">공지    </span></a> -->
-						<a class="menu__item" href="${nlist}" style = "border: none;"> <span class="menu__item-name">공지    </span></a>  
+						<a class="menu__item" href="nlist.do" style = "border: none;"> <span class="menu__item-name">공지    </span></a>  
 						<a class="menu__item" href="tlist.tm" id="teamMenu"> <span class="menu__item-name">팀       </span> </a>
 						<a class="menu__item" href="playerMain.ma" id = "playerMenu" style = "border:none;"> <span class="menu__item-name">용병     </span> </a> 
 						<a class="menu__item" href="goMatch.ma" style = "border: none;"> <span class="menu__item-name">매칭     </span></a>
