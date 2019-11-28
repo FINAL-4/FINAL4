@@ -26,7 +26,6 @@
 		  box-sizing: border-box;
 		}
 		
-		/* Set a style for all buttons */
 		button {
 		  background-color: #4CAF50;
 		  color: white;
@@ -40,7 +39,7 @@
 		button:hover {
 		  opacity: 0.8;
 		}
-		
+		 
 		/* Extra styles for the cancel button */
 		.cancelbtn {
 		  width: auto;

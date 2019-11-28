@@ -317,13 +317,14 @@ div[id^="player"]{
 		<table>
 			<thead>
 			<tr>
-				<th class="teamtest">팀 로고</th>
-				<th class="teamtest">팀 명</th>
-				<th class="teamtest">팀장이름</th>
-				<th class="teamtest">경기장</th>
-				<th class="teamtest">경기 날짜</th>
-				<th class="teamtest">경기 시간</th>
-				<th class="teamtest">용병 마감 인원</th>
+				<th class="playList">팀 로고</th>
+				<th class="playList">제목</th>
+				<th class="playList">팀 명</th>
+				<th class="playList">팀장이름</th>
+				<th class="playList">경기장</th>
+				<th class="playList">경기 날짜</th>
+				<th class="playList">경기 시간</th>
+				<th class="playList">용병 마감 인원</th>
 			</tr>
 			</thead>
 			
@@ -333,18 +334,19 @@ div[id^="player"]{
 			<tbody>
 			<%for(int i=1; i<11; i++) {%>
   			<tr class="teamselector" onclick="tdetail(<%=i%>);">
-			    <td class="teamtest">
+			    <td class="playList">
 			    	<div style="height:100%; width:80" class="Timgtag">
 			    		<input type="hidden" value="<%=i%>" class="hiddenTno<%=i%>">
 			    		<img src="<%=request.getContextPath()%>/resources/images/logo.png" style="width:100%; height:100%; padding-left:25px;">
 			    	</div>
 			    </td>
-			    <td class="teamtest">contents1</td>
-			    <td class="teamtest">contents2</td>
-			    <td class="teamtest">contents3</td>
-			    <td class="teamtest">contents4</td>
-			    <td class="teamtest">contents5</td>
-			    <td class="teamtest">contents6</td>
+			    <td class="playList">contents1</td>
+			    <td class="playList">contents2</td>
+			    <td class="playList">contents3</td>
+			    <td class="playList">contents4</td>
+			    <td class="playList">contents5</td>
+			    <td class="playList">contents6</td>
+			    <td class="playList">contents7</td>
   			</tr>
   			<tr class="spacetr"></tr>
   			<% }%>
