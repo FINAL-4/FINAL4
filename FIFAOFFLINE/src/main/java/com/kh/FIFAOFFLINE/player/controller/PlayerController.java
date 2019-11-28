@@ -12,8 +12,23 @@ public class PlayerController {
 	@Autowired
 	private PlayerService pService;
 	
-	@RequestMapping("playerMain.ma")
-	public String goMatching() {
+	@RequestMapping("playMain.pl")
+	public String playMain() {
+		return "player/listPlayer";
+	}
+	
+	@RequestMapping("playList.pl")
+	public String playList() {
 		return "player/applyDetailPlayer";
+	}
+	
+	@RequestMapping("playTeamCreate.pl")
+	public String playTeamCreate() {
+		return "player/createTeamPlayer";
+	}
+	
+	@RequestMapping("playPersonCreate.pl")
+	public String playPersonCreate() {
+		return "player/createPersonPlayer";
 	}
 }

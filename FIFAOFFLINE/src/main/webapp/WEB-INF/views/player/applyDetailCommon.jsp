@@ -14,6 +14,11 @@
 #playerMenu.menu__item::before{
    color: red;
 }
+#title{
+	font-size: 40px; 
+	margin-top: 120px; 
+	border-bottom: 5px solid grey;
+}
 #picture{
 	width : 250px;
 	height : 250px;
@@ -43,24 +48,23 @@
 	letter-spacing: 4px;
 }
 #btn{
-	margin-left : 200px;
+	margin-left : 210px;
 }
-#recruitBtn, #applyBtn{
+#recruitBtn, #applyBtn, #deleteBtn, #modifyBtn {
 	width:250px;
+	height: 50px;
 	font-size: 2em;
-	font-weight: bold;
-	background: white;
-	border: 1px solid white;
-}
-#applyingBtn, #deleteBtn, #modifyBtn{
-	width:250px;
-	font-size:2em;
 	font-weight: bold;
 	background: white;
 	border: 1px solid white;
 }
 #applyingBtn{
 	width:505px;
+	height:50px;
+	font-size: 2em;
+	font-weight: bold;
+	background: white;
+	border: 1px solid white;
 }
 #recruitBtn:hover, #applyBtn:hover, #applyingBtn:hover, #deleteBtn:hover, #modifyBtn:hover{
 	color:white;
@@ -73,16 +77,10 @@
 }
 #applyDetailTable{
 	width:320px;
+	border-collapse: separate;
+	border-spacing: 10px 25px;
 } 
-.agreeBtn{
-	margin-top:25px;
-	width:35px;
-	height:30px;
-	font-weight: bold; 
-	font-size:1.5em;
-}
-.cancelBtn{
-	margin-top:27px;
+.agreeBtn, .cancelBtn{
 	width:35px;
 	height:30px;
 	font-weight: bold; 
@@ -106,8 +104,8 @@
 </head>
 <jsp:include page = "../common/header.jsp"/>
 <body>
-<div id = "title" style = "font-size: 40px; margin-top: 80px; margin-left: 5%;"> 모집글 상세보기 </div>
-<div id="content" style="margin-top: 15px; border-bottom: 5px solid grey; border-top: 5px solid grey; margin-left: 5%; margin-right:5%; width: 90%; ">
+<div id="content" style="margin-top: 15px; border-bottom: 5px solid grey; border-top: 5px solid grey; margin-left: 5%; margin-right:5%; width: 90%;">
+<div id = "title"> 모집글 상세보기 </div>
 	<div class="ha-waypoint" data-animate-down="ha-header-show" data-animate-up="ha-header-subshow" style="height: 900px; width: 90%; border: black; margin: auto;">
 		<form>																									<!-- 730 -->
 		<div style = "float:left;"> 
@@ -131,7 +129,7 @@
 				<td> 경기장 받아오기 </td>
 			</tr>
 			<tr>
-				<td> 팀원 수 or 매치 </td>
+				<td> 마감인원 </td>
 				<td> 인원 받아오기 </td>
 			</tr>
 			<tr>
@@ -182,11 +180,11 @@
 			<div id = btn>
 				<div id = btnPosition1>
 				<input type = button id = recruitBtn value = "모집 리스트 보기">
-				<input type = button id = applyBtn value = "신청하기"> <br>
+				<input type = button id = applyBtn value = "신청하기"> <br> <br>
 				</div>
 				<div id = btnPosition2>
 				<input type = button id = deleteBtn value = "글 삭제하기">
-				<input type = button id = modifyBtn value = "글 수정하기"> <br>
+				<input type = button id = modifyBtn value = "글 수정하기"> <br> <br>
 				<input type = button id = applyingBtn value = "신  청  현  황">
 				</div>
 			</div>
@@ -198,7 +196,7 @@
 						신청현황
 					</td>
 				</tr>
-				<%for(int i = 0; i <= 5; i++) { %>
+				<%for(int i = 0; i <= 10; i++) { %>
 				<tr>
 					<td style = "font-size:1.7em;"> 신청 한 사람 받아오기 </td>
 					<td> 

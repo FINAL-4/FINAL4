@@ -6,24 +6,16 @@
 <meta charset="UTF-8">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-  var $$ = jQuery.noConflict();
+	var $$ = jQuery.noConflict();
 </script>
 <script src='resources/js/moment.min.js'></script>
 <script src='resources/js/fullcalendar.min.js'></script>
 <script src='resources/js/gcal.min.js'></script>
-
 <!-- locale = ko ==> 한글로 -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/ko.js'></script>
-  
 <!-- CSS 파일 -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" type='text/css' rel='stylesheet'/>
-
-
-
 <title>Insert title here</title>
-
-
-
 <script type="text/javascript">
 	$$(function(){
 		$$("#calendar").fullCalendar({
@@ -37,61 +29,44 @@
 				right : 'today,addScheduleBtn' 
 			},
 			select: function(startDate ,endDate){
-				
-				if(confirm("날짜를 선택하시겠습니까?") == false){
-					return false;
-				}
-				
 				console.log(startDate.format(), endDate.format());
 				sDate = startDate.format();
 				eDate = endDate.format();
 				$$("#dayInfo").html(sDate);
-				$$("#mDayInfo").val(sDate);
 				$("#calendar").fullCalendar("refetchEvents");
 				
  			}
 		});
 	});
-	
-
-
 </script>
 
 <style>
-
 #map{
 	width: 400px;
 	height: 400px;
+	margin-top: 4%;
 	margin-left: 10%;
-	border: 3px solid grey;
 }
-
-
 #calendar{
 	width: 30%;
 	height: 100%;
+	margin-top: 4%;
 	margin-left: 10%;
 }
-
 .fc-basic-view .fc-body .fc-row {
     min-height: 1em;
 }
-
 .fc-today-button{
 	width: 50px;
 	height: 20px;
-
 }
-
 .fc-button-group{
 	width: 30px;
 	height: 5px;
 }
-
 .fc button, .fc table, body .fc {
     font-size: 12px;
 }
-
 body{
   overflow-x: hidden;
 }
@@ -101,7 +76,6 @@ body{
     float: left;
     cursor: pointer
 }
-
 #employer-post-new-job .res-steps-container .res-steps .res-step-bar {
     -webkit-border-radius: 50% !important;
     -moz-border-radius: 50% !important;
@@ -117,14 +91,12 @@ body{
     padding-top: 7px;
     font-size: 20px
 }
-
 #employer-post-new-job .res-steps-container .res-steps .res-progress-title {
     text-align: center;
     font-size: 15px;
     padding-top: 10px;
     display: block
 }
-
 #employer-post-new-job .res-steps-container .res-steps .res-progress-bar {
     height: 5px;
     background: black;	/* 막대기 색 */
@@ -132,50 +104,40 @@ body{
     margin: -22px 0 0 50%;
     float: left
 }
-
 #employer-post-new-job .res-steps-container .res-step-two .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-three .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-four .res-progress-bar {
     width: 100%;
     margin-left: 0%
 }
-
 #employer-post-new-job .res-steps-container .res-step-four .res-progress-bar {
     width: 50%;
     margin-right: 50%
 }
-
 #employer-post-new-job .res-step-form {
+    border: 1px solid #d2d2d2;
     box-shadow: 0px 6px 4px -2px silver;
     position: absolute
 }
-
 #employer-post-new-job .res-step-form h3 {
     margin: 10px 0;
     color: black;
     font-size: 18px
 }
-
 #employer-post-new-job .res-step-form .form-horizontal label {
     font-weight: normal
 }
-
 #employer-post-new-job .res-form-two, #employer-post-new-job .res-form-three, #employer-post-new-job .res-form-four {
     left: 150%
 }
-
 #employer-post-new-job .active .res-step-bar {
     background: lightgrey !important;	/* 선택된 원 색 */
 }
-
 #employer-post-new-job .active .res-progress-title {
     color: lightgrey;	/* 선택된 글자색 */
 }
-
 .contents{
-
 	width : 100%;
-	height: 470px;
+	height: 80%;
 }
-
 button,
 button::after {
   -webkit-transition: all 0.3s;
@@ -183,7 +145,6 @@ button::after {
   -o-transition: all 0.3s;
 	transition: all 0.3s;
 }
-
 button {
   background: none;
   border: 3px solid #fff;
@@ -197,7 +158,6 @@ button {
   position: relative;
   text-transform: uppercase;
 }
-
 button::before,
 button::after {
   background: #fff;
@@ -205,32 +165,22 @@ button::after {
   position: absolute;
   z-index: -1;
 }
-
 button:hover {
   color: black;
-  background: black;
+  background: red;
 }
-
-
 .btns{
 	width: 100%;
-	height: 100px;
-	position: absolute;
+	height: 20%;
 }
-
 .btn{
 	border:1px solid black;
 	background:white;
 	width: 100px;
 	height: 50px;
   	overflow: hidden;
-  	display: inline-block;
-  	margin-left: 5px;
-  	margin-right: 5px;
-  	color: black;
+	float: right;
 }
-
-
 .btn::after {
   /*background-color: #f00;*/
   height: 100%;
@@ -241,27 +191,21 @@ button:hover {
   transform-origin: top left;
   width: 0;
 }
-
 .btn:hover:after {
   height: 100%;
   width: 135%;
 }
-
-
 #timeInfoTable{
 	width: 500px;
 	height: 100%;
 }
-
 #timeInfoTable td{
 	border-bottom: 3px solid lightgrey;
 }
-
 li{
    list-style:none;
    border-bottom: 0.3px soild lightgrey;
 }
-
 .item{
 	width: 100%;
 	height: 10px;
@@ -269,69 +213,51 @@ li{
 	padding: 0px;
 
 }
-
 .info h5{
 	margin: 0px;
 	padding: 0px;
 }
-
 .info {
     text-align: left;
+    margin-top: 0em;
     clear: both;
     padding: 3em 0;
     opacity: 0.7;
     color: #aca89a;
 }
-
 #infoTable td{
 	border-bottom: 3px solid lightgrey;
 	height: 80px;
 }
-
 #placesList td{
 	height: 10px;
 	margin: 0px;
 	padding: 0px;
 }
-
 #placesList tr:hover{
 	background: whitesmoke;
 	cursor: pointer;
 }
-
 #placeInfoTable{
 	width: 700px;
 	height: 100%;
 }
-
 #placeInfoTable td{
-	font-size: 13px;
 	border-bottom: 3px solid lightgrey;
 }
-
-#searchLocation{
- 	width: 80px;
- 	height: 28px;
- 	border: 1px solid black;
- 	background: white;
- 	font-size: 15px;
- 	color: black;
-	padding: 0;
+/* 위에는 현모형 css
+아래부터 나 css */
+#title{
+	font-size: 40px; 
+	margin-top: 120px; 
+	border-bottom: 5px solid grey;
 }
-
-input, select{
-	height: 35px;
-	text-align-last:center;
-}
-
-
-
 </style>
 </head>
 <jsp:include page = "../common/header.jsp"/>
 <body>
-	<div id = "title" style = "font-size: 40px; margin-top: 80px; margin-left: 5%;">매치 생성</div>
 	<div id="outer" style="margin-top: 15px; border-bottom: 5px solid grey; border-top: 5px solid grey; margin-left: 5%; margin-right:5%; width: 90%; ">
+	<div id = "title">팀 용병 모집</div>
 		<div class="ha-waypoint" data-animate-down="ha-header-show"
 			data-animate-up="ha-header-subshow"
 			style="height: 730px; width: 90%; border: black; margin: auto;">
@@ -340,67 +266,65 @@ input, select{
 				<div class="row">
 					<div class="container">
 						<div class="row">
-							<form id = "createForm" action="createMatch.ma">
-								<div class="col-xs-10 col-xs-offset-1" id="container">
-									<div class="res-steps-container">
-										<div class="res-steps res-step-one active"
-											data-class=".res-form-one">
-											<div class="res-step-bar">1</div>
-											<div class="res-progress-bar"></div>
-											<div class="res-progress-title" id = "basicLabel"
-												style="width: 170px; margin: auto;">기본정보</div>
-										</div>
-										<div class="res-steps res-step-two" data-class=".res-form-two">
-											<div class="res-step-bar">2</div>
-											<div class="res-progress-bar"></div>
-											<div class="res-progress-title" id = "locationLabel"
-												style="width: 170px; margin: auto;">장소</div>
-										</div>
-										<div class="res-steps res-step-three"
-											data-class=".res-form-three">
-											<div class="res-step-bar">3</div>
-											<div class="res-progress-bar"></div>
-											<div class="res-progress-title" id = "timeLabel"
-												style="width: 170px; margin: auto;">시간</div>
-										</div>
-										<div class="res-steps res-step-four"
-											data-class=".res-form-four">
-											<div class="res-step-bar">4</div>
-											<div class="res-progress-bar"></div>
-											<div class="res-progress-title" id = "submitLabel"
-												style="width: 170px; margin: auto;">제출</div>
-										</div>
+
+							<div class="col-xs-10 col-xs-offset-1" id="container">
+								<div class="res-steps-container">
+									<div class="res-steps res-step-one active"
+										data-class=".res-form-one">
+										<div class="res-step-bar">1</div>
+										<div class="res-progress-bar"></div>
+										<div class="res-progress-title"
+											style="width: 170px; margin: auto;">기본정보</div>
 									</div>
-									
-									<div class="clearfix">&nbsp;</div>
-	
-									<div class="res-step-form col-md-8 col-md-offset-2 res-form-one" style = "/* border: 3px solid red; */ width: 80%; height: 570px;">
+									<div class="res-steps res-step-two" data-class=".res-form-two">
+										<div class="res-step-bar">2</div>
+										<div class="res-progress-bar"></div>
+										<div class="res-progress-title"
+											style="width: 170px; margin: auto;">장소</div>
+									</div>
+									<div class="res-steps res-step-three"
+										data-class=".res-form-three">
+										<div class="res-step-bar">3</div>
+										<div class="res-progress-bar"></div>
+										<div class="res-progress-title"
+											style="width: 170px; margin: auto;">시간</div>
+									</div>
+									<div class="res-steps res-step-four"
+										data-class=".res-form-four">
+										<div class="res-step-bar">4</div>
+										<div class="res-progress-bar"></div>
+										<div class="res-progress-title"
+											style="width: 170px; margin: auto;">제출</div>
+									</div>
+								</div>
+								
+								<div class="clearfix">&nbsp;</div>
+
+								<div class="res-step-form col-md-8 col-md-offset-2 res-form-one" style = "border: 3px solid red; width: 80%; height: 570px;">
+									<form class="form-horizontal">
 										<div class = "contents">
-											<h2 id = "subTitle"  align="center" style = "margin-top: 0px">기본 정보</h2>
-											<div id = "infoTable" style = "width: 50%; margin-left: 30%; margin-right: 20%; ">
+											<div id = "infoTable" style = "width: 50%; margin-left: 25%; margin-right: 25%; margin-top: 5%;">
 												<table >
 												<tr>
-														<td style = "width: 40%; font-size: 20px; text-align: center">매치 제목</td>
+														<td style = "width: 40%;">매치 제목</td>
 														<td style = "width: 60%;">
-															<input id = "mTitle" name = "mTitle" type = "text" style = "width: 400px;">
+															<input type = "text" style = "width: 400px;">
 														</td>
 													</tr>
 													<tr>
-														<td style = "width: 40%; font-size: 20px; text-align: center">팀 선택</td>
+														<td>팀 선택</td>
 														<td>
-															<select id = "teamSelect" name = "teamNo" style = "width: 100%;">
-																<option value = "">==선택==</option>
-																<option value = "1">팀1</option>
-																<option value = "2">팀2</option>
-																<option value = "3">팀3</option>
+															<select style = "width: 100%;">
+																<option>팀1</option>
+																<option>팀2</option>
+																<option>팀3</option>
 															</select>
 														</td>
 													</tr>
 													<tr>
-														<td style = "width: 40%; font-size: 20px; text-align: center">매치 유형</td>
+														<td>매치 유형</td>
 														<td>
-															<select id = "systemSelect" name = "mSystem" style = "width: 100%;">
-																<option value = "">==선택==</option>
+															<select style = "width: 100%;">
 																<option value = "5 VS 5">5 VS 5</option>
 																<option value = "6 VS 6">6 VS 6</option>
 																<option value = "7 VS 7">7 VS 7</option>
@@ -412,44 +336,32 @@ input, select{
 														</td>
 													</tr>
 													<tr>
-														<td style = "width: 40%; font-size: 20px; text-align: center">회비</td>
+														<td>회비</td>
 														<td>
-															<input id ="dues" name = "dues" onkeyup="checkNumber(this);" type = "text" maxlength="7">
+															<input id ="dues" onkeyup="checkNumber(this);" type = "text" maxlength="7">
 														</td>
 													</tr>
 												</table>
 											</div>
 										</div>
-										<div class = "btns" align="center">
+										<div class = "btns">
 											<button type="button"
 												class="btn btn-default btn res-btn-gray"
 												data-class=".res-form-one">Next</button>
 										</div>
-									</div>
-	
-									<div class="res-step-form col-md-8 col-md-offset-2 res-form-two" style = "/* border: 3px solid green; */ width: 80%; height: 570px;">
+									</form>
+								</div>
+
+								<div class="res-step-form col-md-8 col-md-offset-2 res-form-two" style = "border: 3px solid green; width: 80%; height: 570px;">
+									<form class="form-horizontal">
 										<div class = "contents">
-											<h2  id = "subTitle" align="center" style = "margin-top: 0px">장소 선택</h2>
 											<div id = "map"  style = "display: inline-block;">
 											
 											</div>
+						
 											<div id = "placeInfo" style = "display: inline-block; margin-left: 10%;">
-												<table>
-													<tr>
-														<td style = "width: 30%"><input id = "keyword" type = "text" value = "강남역" style = "margin: 0px; padding: 0px; font-size: 20px;"></td>
-														<!-- <td style = "width: 40%"><button id = "searchLocation" onclick = "searchPlaces(); return false;">검색하기</button></td> -->
-														<td style = "width: 20%"><button id = "searchLocation" onclick = "searchPlaces(); return false;">검색</button></td>
-														<td style = "width: 500%">
-															<h6 style = "margin: 0px;">선택된 장소</h6>
-															<h3 id = "cplace" style = "margin-top: 2px;">장소를 선택하세요.</h3>
-															<input id = "cplaceName" name = "mLocationName" style = "display: none;"></input>
-															<input id = "cplaceX" name = "mLocationX" style = "display: none;"></input>
-															<input id = "cplaceY" name = "mLocationY" style = "display: none;"></input>
-														</td>
-													</tr>
-												</table>
-												<div id = "scroll" style =  "overflow:auto; width: 720px; height: 350px;">
-												<table id = "placeInfoTable" style = "border: none;" >
+											
+												<table id = "placeInfoTable" style = "border: none;">
 													<tr>
 														<td colspan="3">
 															<div id= "menu_wrap" style = "font-size: 1px;">
@@ -458,26 +370,35 @@ input, select{
 															</div>
 														</td>
 													</tr>
+													<tr>
+														<td style = "width: 30%"><input id = "keyword" type = "text" value = "강남역" style = "margin: 0px; padding: 0px; font-size: 20px;"></td>
+														<!-- <td style = "width: 40%"><button id = "searchLocation" onclick = "searchPlaces(); return false;">검색하기</button></td> -->
+														<td style = "width: 20%"><img id = "searchLocation" onclick = "searchPlaces(); return false;" src="resources/images/search.jpg" width="50px;" height="50px;"></td>
+														<td style = "width: 60%">
+															<h3 id = "cplace">장소가 선택되지 않았습니다.</h3>
+														</td>
+													</tr>
 												</table>
-												</div>
+												<br><br><br><br><br>
 											</div>
-	
 										</div>
 										
 										
-										<div class = "btns" align="center">
-											<button type="button" style = "float : none;"
-												class="btn btn-default col-xs-offset-1 btn res-btn-orange"
-												data-class=".res-form-two">Back</button>
+										<div class = "btns">
 											<button type="button"
 												class="btn btn-default btn res-btn-gray"
 												data-class=".res-form-two">Next</button>
+											<button type="button"
+												class="btn btn-default col-xs-offset-1 btn res-btn-orange"
+												data-class=".res-form-two">Back</button>
 										</div>
-									</div>
-	
-									<div class="res-step-form col-md-8 col-md-offset-2 res-form-three" style = "/* border: 3px solid blue; */ width: 80%; height: 570px;">
+									</form>
+								</div>
+
+								<div class="res-step-form col-md-8 col-md-offset-2 res-form-three" style = "border: 3px solid blue; width: 80%; height: 570px;">
+									<form class="form-horizontal">
 										<div class = "contents">
-											<h2 id = "subTitle"  align="center" style = "margin-top: 0px">시간 선택</h2>
+											
 											<div id = "calendar" style = "display: inline-block;">
 												　
 											</div>
@@ -487,13 +408,13 @@ input, select{
 												<table id = "timeInfoTable" style = "border: none;">
 													<tr>
 														<td style = "width: 30%"><h4>날짜</h4></td>
-														<td style = "width: 40%"><h6 style = "margin: 0px;">선택된 날짜</h6><h4 id = "dayInfo" style = "font-size: 22px; margin-top: 0px; margin-bottom: 0px;">날짜를 선택하세요.</h4></td>
-														<td style = "width: 40%"><input type = "text" id = "mDayInfo" name = "mDay" style = "display: none;"></input></td>
+														<td style = "width: 40%"><h4 id = "dayInfo">날짜를 선택하세요.</h4></td>
+														<td style = "width: 40%"></td>
 													</tr>
 													<tr>
 														<td><h4>시작 시간</h4></td>
 														<td>
-															<select name = "sHour" style = "width: 100px; text-align: center;">
+															<select>
 																<%for(int i = 0 ; i<10 ; i++){ %>
 																<option value = "0<%=i%>">0<%=i%></option>
 																<%}%>
@@ -501,10 +422,9 @@ input, select{
 																<option value = "<%=i%>"><%=i%></option>
 																<%}%>
 															</select>
-															시
 														</td>
 														<td>
-															<select name = "sMinute" style = "width: 100px;">
+															<select>
 																<option value = "00">00</option>
 																<option value = "10">10</option>
 																<option value = "20">20</option>
@@ -512,13 +432,12 @@ input, select{
 																<option value = "40">40</option>
 																<option value = "50">50</option>
 															</select>
-															분
 														</td>
 													</tr>
 													<tr>
 														<td><h4>종료 시간</h4></td>
 														<td>
-															<select name ="eHour" style = "width: 100px;">
+															<select>
 																<%for(int i = 0 ; i<10 ; i++){ %>
 																<option value = "0<%=i%>">0<%=i%></option>
 																<%}%>
@@ -526,10 +445,9 @@ input, select{
 																<option value = "<%=i%>"><%=i%></option>
 																<%}%>
 															</select>
-															시
 														</td>
 														<td>
-															<select name ="eMinute" style = "width: 100px;">
+															<select>
 																<option value = "00">00</option>
 																<option value = "10">10</option>
 																<option value = "20">20</option>
@@ -537,87 +455,48 @@ input, select{
 																<option value = "40">40</option>
 																<option value = "50">50</option>
 															</select>
-															분
 														</td>
 													</tr>
 												</table>
 												<br><br><br><br><br>
 											</div>
 										</div>
-										<div class = "btns" align="center">		
-											<button type="button" style = "float : none;"
-												class="btn btn-default col-xs-offset-1 btn res-btn-orange"
-												data-class=".res-form-three">Back</button>
+										<div class = "btns">		
 											<button type="button"
 												class="btn btn-default btn res-btn-gray"
 												data-class=".res-form-three">Next</button>
+											<button type="button"
+												class="btn btn-default col-xs-offset-1 btn res-btn-orange"
+												data-class=".res-form-three">Back</button>
 										</div>
-									</div>
-	
-									<div class="res-step-form col-md-8 col-md-offset-2 res-form-four" style = "/* border: 3px solid yellow; */ width: 80%; height: 570px;">
-											<div class = "contents" style = "margin-left: 25%; margin-right: 25%; margin-top: 0px;">
-												<h2 style = "padding-top: 50px; margin-top: 0px; margin-bottom: 0px;">남기는말</h2>
-												<textarea id = "mContent" name = "mContent" rows="10" cols="80" style = "resize: none;" value ="" ></textarea>
-											</div>
-											<div class = "btns" align="center">
-												<button type="button"
-													class="btn btn-default btn res-btn-orange"
-													data-class=".res-form-four">Back</button>
-												<button type="button" 
-													class="btn" onclick = "submitCreate();"
-													data-class=".res-form-four">Submit</button>
-											</div>
-									</div>
+									</form>
 								</div>
-							</form>
+
+								<div class="res-step-form col-md-8 col-md-offset-2 res-form-four" style = "border: 3px solid yellow; width: 80%; height: 570px;">
+									<form class="form-horizontal">
+										<div class = "contents" style = "margin-left: 25%; margin-right: 25%;">
+											<h2 style = "margin-top: 5%;">남기는말</h2>
+											<textarea rows="10" cols="80" style = "margin-top: 2%;  resize: none;" value ="" ></textarea>
+										
+										
+										</div>
+										<div class = "btns">
+											<button type="button"
+												class="btn btn-default btn res-btn-orange"
+												data-class=".res-form-four">Back</button>
+											<button type="button"
+												class="btn"
+												data-class=".res-form-four">Submit</button>
+										</div>
+									</form>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 		</div>
 	</div>
-
-
-
-
-<script type="text/javascript">
-
-	function submitCreate(){
-		
-		if($$("#mTitle").val() == ""){
-			alert("매치 제목을 입력하세요.");
-			$$("#basicLabel").click();
-			return false;
-		}else if($$("#teamSelect").val() == ""){
-			alert("팀을 선택하세요.");
-			$$("#basicLabel").click();
-			return false;
-		}else if($$("#systemSelect").val() == ""){
-			alert("매치 유형을 선택하세요.");
-			$$("#basicLabel").click();
-			return false;
-		}else if($$("#dues").val() == ""){
-			alert("회비를 입력하세요.");
-			$$("#basicLabel").click();
-			return false;
-		}else if($$("#cplace").html() == "장소를 선택하세요."){
-			alert("장소를 선택하세요.");
-			$$("#locationLabel").click();
-			return false;
-		}else if($$("#dayInfo").html() == "날짜를 선택하세요."){
-			alert("날짜를 선택하세요.");
-			$$("#timeLabel").click();
-			return false;
-		}else if($$("#mContent").val() == ""){
-			alert("남기실 말을 입력하세요.");
-			return false;
-		}
-		
-		
-		$$("#createForm").submit();
-	}
-</script>
-
 
 
 	<!-- 카카오 맵 -->
@@ -635,23 +514,11 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 // 지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-//일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
-var mapTypeControl = new kakao.maps.MapTypeControl();
-
-// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
-// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
-map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-
-// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
-var zoomControl = new kakao.maps.ZoomControl();
-map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
 // 장소 검색 객체를 생성합니다
 var ps = new kakao.maps.services.Places();  
 
 // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
-
 
 // 키워드로 장소를 검색합니다
 searchPlaces();
@@ -758,7 +625,7 @@ function getListItem(index, places) {
     var el = document.createElement('tr'),
     itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
                 '<td class="info" style ="width:400px;">' +
-                '   <h4>' + places.place_name + '</h4></td>';
+                '   <h5>' + places.place_name + '</h5></td>';
 
     if (places.road_address_name) {
         itemStr += '    <td><span>' + places.road_address_name + '</span>' +
@@ -767,22 +634,19 @@ function getListItem(index, places) {
         itemStr += '    <td><span>' +  places.address_name  + '</span>'; 
     }
                  
-      itemStr += '  <span class="tel"> ' + places.phone  + '</span>' +
+      itemStr += '  <span class="tel">' + places.phone  + '</span>' +
                 '</td>';           
 
     el.innerHTML = itemStr;
     el.className = 'item';
 	el.onclick = function (){
-		
-		if(confirm("장소를 선택하시겠습니까?") == false){
-			return false;
-		}
-		
 		$$("#cplace").html(places.place_name);
-		$$("#cplaceName").val(places.place_name);
-		$$("#cplaceX").val(places.x);
-		$$("#cplaceY").val(places.y);
+		
 	}
+	
+	
+	
+	
 	
     return el;
 }
