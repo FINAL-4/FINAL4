@@ -12,6 +12,11 @@
   	<result property="filePath" column="FILE_PATH"/>
   </resultMap>
   
+  <select id="getListCount" resultType="_int">
+  	SELECT COUNT(*)
+  	FROM NOTICE
+  	WHERE STATUS='Y'
+  </select>
   
   <select id="selectList" resultMap="noticeResultSet">
   	SELECT *
@@ -38,12 +43,13 @@
  		NCONTENT=#{nContent},
  		FILE_PATH=#{filePath}
  	WHERE NID=#{nId} 	
-  
   </update>
   
   <delete id="deleteNotice" parameterType="_int">
   DELETE NOTICE 
   WHERE NID=#{nId} 	
+  
   </delete>
-
+  
+  
 </mapper>

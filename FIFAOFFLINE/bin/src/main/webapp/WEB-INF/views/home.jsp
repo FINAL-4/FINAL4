@@ -6,18 +6,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-		
+<style>
+/* body{
+	background-image: url('resources/images/ba1.jpg');
+	background-size: 100% 100%;
+} */
+</style>
 <title>Insert title here</title>
+
+
 </head>
 <jsp:include page = "common/header.jsp"/>
 
 <body>
 
-<div id = "outer" style = "margin-top: 180px;">
-			<div class="ha-waypoint" data-animate-down="ha-header-show" data-animate-up="ha-header-subshow" style = "height: 1200px; width: 90%; background: black; margin: auto;">
+<div id = "outer" style = "margin-top: 180px; background-image: url('resources/images/ba1.jpg'); background-size:100% 100%;">
+			<div class="ha-waypoint" data-animate-down="ha-header-show" data-animate-up="ha-header-subshow" style = "height: 1200px; width: 90%; background: white; margin: auto;">
 			</div>
 			<br>
-			<div class="ha-waypoint" data-animate-down="ha-header-shrink" data-animate-up="ha-header-show" style = "height: 1200px; width: 90%; background: green; margin: auto;">
+			<div class="ha-waypoint" data-animate-down="ha-header-shrink" data-animate-up="ha-header-show" style = "height: 1200px; width: 90%; background: white; margin: auto;">
 			</div>
 </div>
 <script>
