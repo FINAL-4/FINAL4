@@ -33,7 +33,9 @@
 		
 		<!-- ======================= 안효찬 ========================= -->
 		<typeAlias type="com.kh.FIFAOFFLINE.team.model.vo.Team" alias="Team"/>
-		
+		<typeAlias type="com.kh.FIFAOFFLINE.team.model.vo.TeamAD" alias="TeamAD"/>
+		<typeAlias type="com.kh.FIFAOFFLINE.team.model.vo.TeamJoinedMember" alias="TeamJoinedMember"/>
+		<typeAlias type="com.kh.FIFAOFFLINE.team.model.vo.TeamMember" alias="TeamMember"/>
 		
 		
 		
