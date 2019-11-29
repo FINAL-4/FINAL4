@@ -2,21 +2,32 @@ package com.kh.FIFAOFFLINE.notice.model.dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.FIFAOFFLINE.notice.model.vo.Notice;
+import com.kh.FIFAOFFLINE.notice.model.vo.PageInfo;
 
 @Repository("nDao")
 public class NoticeDao {
 
 	@Autowired
 	SqlSessionTemplate sqlSession;
+	
+	public int getListCount() {
 
-	public ArrayList<Notice> selectList() {
+		return sqlSession.selectOne("noticeMapper.getListCount");
+	}
+	
+
+	public ArrayList<Notice> selectList(PageInfo pi) {
 		
-		return (ArrayList)sqlSession.selectList("noticeMapper.selectList");
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		
+		return (ArrayList)sqlSession.selectList("noticeMapper.selectList",null, rowBounds);
 	}
 
 	public Notice selectOne(int nId) {
@@ -38,19 +49,5 @@ public class NoticeDao {
 
 		return sqlSession.delete("noticeMapper.deleteNotice", nId);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
