@@ -57,12 +57,11 @@ public class MemberController {
 	}
 	@RequestMapping("join.me")
 	public String memberInsert(Member m,Model model,
-			@RequestParam("phone1") String phone1,
+			@RequestParam(value="phone1") String phone1,
 			@RequestParam("phone2") String phone2,
 			@RequestParam("phone3") String phone3,
 			@RequestParam("emilId") String emailId,
-			@RequestParam("email2") String email2
-								) {
+			@RequestParam("email2") String email2) {
 		System.out.println(m);
 		  m.setPhone(phone1+"-"+phone2+"-"+phone3);
 		  m.setUserEmail(emailId+"@"+email2);
@@ -72,15 +71,15 @@ public class MemberController {
  * String phone = request.getParameter("phone1") +"-"+request.getParameter("phone2") +"-"+request.getParameter("phone3");
  * String email = request.getParameter("emailId") + "@" + request.getParameter("email2");
  */
-		/*int result = mService.insertMember(m);
+		int result = mService.insertMember(m);
 		
 		if(result > 0) {
 			return "home";
 		}else {
 			throw new MemberException("회원 가입 실패!!");
 		}
-		*/
-		return null;
+		
+		
 		
 	}
 	
