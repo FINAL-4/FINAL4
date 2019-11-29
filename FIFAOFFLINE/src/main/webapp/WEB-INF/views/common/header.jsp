@@ -102,7 +102,7 @@
 		.modal {
 		  display: none; /* Hidden by default */
 		  position: fixed; /* Stay in place */
-		  z-index: 1; /* Sit on top */
+		  z-index: 51; /* Sit on top */
 		  left: 0;
 		  top: 0;
 		  width: 100%; /* Full width */
@@ -171,7 +171,7 @@
 		  
 		  <form class="modal-content animate" action="login.me" method="post">
 		<div class="imgcontainer">
-     		 <span class="close">&times;</span>
+     		 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       
     	</div>
 		
@@ -186,10 +186,11 @@
 		      <label>
 		        <input type="checkbox" checked="checked" name="remember"> Remember me
 		      </label>
+		      <div>
 		      <span class="join">회원이아니신가요? <a href="goJoin.me">회원가입하러가기</a></span>
-		      </div>
-		     <div>
+		      
 		      <span class="find">비밀번호를 잊으셨나요? <a href="find.me">비밀번호 찾으러가기</a></span>
+		    </div>
 		    </div>
 		
 		
@@ -209,7 +210,8 @@
 		    }
 		}
 		$(".close").click(function(){
-			modal.style.display="none";
+			/* modal.style.display="none"; */
+			alert("얍");
 		});
 		</script>
 		

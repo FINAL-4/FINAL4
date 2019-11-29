@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+	pageEncoding="UTF-8"%>
+
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/bPopup/0.11.0/jquery.bpopup.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/bPopup/0.11.0/jquery.bpopup.min.js'></script>
-<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/bPopup/0.11.0/jquery.bpopup.js'></script>
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/bPopup/0.11.0/jquery.bpopup.min.js'></script>
+<title>KH sports</title>
 <style>
 
 .outer{
@@ -116,7 +119,20 @@ select{
 	margin-bottom: 40px;
 	
 }
-	
+#postcodify_search_button {
+	background-color: #f1f1f1;
+	color: black;
+	border-radius: 16px;
+	width: 150px;
+	height: 40px;
+	text-align: center;
+	border: 1px solid blue;
+	border: none;
+	padding: 10px 16px;
+	font-size: 15px;
+	cursor: pointer;
+	box-shadow: 0 5px #999;
+}
 
 #goMain{
 	background-color: #f1f1f1;
@@ -208,7 +224,18 @@ th{
   	margin: 50px auto 0 auto;
   	width: 80%;
 }
-
+/* 개인정보 탭  */
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
 
 .active, .collapsible:hover {
   background-color: #555;
@@ -232,8 +259,15 @@ th{
 
 #userinfo1{
 	width : 20px;
-	    position: relative;
+	position: relative;
     top: 14px;
+}
+canvas
+{
+ width: 200px;
+  height: 200px;
+  border: 0.5px solid gray;
+  margin-left:20px; 
 }
 </style>
 </head>
@@ -243,154 +277,237 @@ th{
 
 <body>
 
-<div id="container" style=""><!-- container -->
-   <div id="mainContent" style=""><!-- mainContent -->
-			<div style="margin=auto">
+	<div id="container" style="">
+		<!-- container -->
+		<div id="mainContent" style="">
+			<!-- mainContent -->
+			<div style="align: center">
 				<img src="resources/images/fifalogo1.png" text-align="center">
 			</div>
 
-			<br><br><br><br><br><br><br>
-				<div>
-				</div>
-			 <div class = "memberjoinForm">
-					<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div></div>
+			<div class="memberjoinForm" style = "border: 1px solid black;">
+				<br>
+
+				<form id="joinForm"
+					action="join.me" method="post">
+					<h2 align="center">
+						<em>FIFAOFFLINE에 오신 것을 환영합니다.</em>
+					</h2>
 					
-					<form id = "joinForm" action = "<%=request.getContextPath() %>/insert.me" method ="post" >
-					  <h2 align = "center"><em>FIFAOFFLINE에 오신 것을 환영합니다.</em></h2>
-						<table align = "center">
-							<tr>
-								<th width ="200px;">  아이디 </th>
-								<td><input id = "userId" type = "text" maxlength ="13" name = "userId" requi#f53f29>
-								<div id = "checkId" class = "checkInfo" style = "font-size : 0.7em"></div></td>
-								  							<!--requi#f53f29 미입력시 값을 입력하세요 문구뜸  -->
-								<!-- <td width ="200px"><div id="idCheck" class = "btns"">중복확인</div></td> -->
-							</tr>
-							<tr>
-								<th>  비밀번호 </th>
-								<td><input id = "userPwd" type ="password" maxlength="20" name ="userPwd" requi#f53f29>
-								<div id = "checkPwd" class = "checkInfo" style = "font-size : 0.7em"></div></td>
-							</tr>
-							<tr>
-								<th> 비밀번호 확인</th>
-								<td><input id = "userPwd2" type="password" maxlength="20" name="userPwd2" requi#f53f29>
-								<div id = "checkPwd2" class = "checkInfo" style = "font-size : 0.7em"></div></td>
-							</tr>
-							<tr>
-								<th>  이름 </th>
-								<td><input id = "userName" type = "text" maxlength="5" name="userName" requi#f53f29>
-								<div id = "checkName" class = "checkInfo" style = "font-size : 0.7em"></div></td>
-							</tr>
-							<tr>
-								<th>  생년월일 </th>
-								<td>
-									<div id ="joinTdbirth">
-									<input type = "text" id = "RRN" maxlength="8" name="userRRN" style="width: 159px; margin-left: 0px;" requi#f53f29>
-									<input id = "genderM" type = "radio"  name="userGender" value = "1" style="width: 20px; height: 20px; " requi#f53f29 checked>
-									<label for = "genderM" >남</label>
-									<input id = "genderY" type = "radio"  name="userGender" value = "2" style="width: 20px; height: 20px;" requi#f53f29>
-									<label for = "genderY" >여</label>
-									</div>
-									<div id = "checkRRN" class = "checkInfo" style = "font-size : 0.7em"></div>
-								</td>
-							</tr>
-							
-							<tr>
-								<th>  연락처 </th>
-								<td>
-									<select id = "tel0" class = "phone" name = "phone1" style="width: 90px; margin-left: 10px; height: 48px;">
-										<option value = "010">010</option>
-										<option value = "011">011</option>
-										<option value = "016">016</option>
-										<option value = "019">019</option>
-									</select>
-									<input id = "tel1" class = "phone" type="tel" maxlength="4" name="phone2" style="width: 130px;  margin-left: 15px;">
-									<input id = "tel2" class = "phone" type="tel" maxlength="4" name="phone3" style="width: 130px;  margin-left: 15px;">
-									<div id = "checkPhone" class = "checkInfo" style = "font-size : 0.7em"></div>
-								</td>
-							</tr>
-							<tr>
-								<th>  이메일 </th>
-								<td id = "emailPt"><input type = "text" name = "emailId" style="width: 141px; margin-right: 5px;" requi#f53f29="requi#f53f29"><em>@</em>
-								<input type="text" name="email2" value="naver.com" style="width: 220px; margin-left: 0px;" ReadOnly="true" placeholder = "naver.com">
-								</td>
-								<td>
-								<select id = "selctEmail" name = "selctEmail" class = "info" style="width: 150px; margin-left: 0px; height: 40px;" onchange="SetEmailTail(selctEmail.options[this.selectedIndex].value)" >
+					
+					<div style = "border: 2px solid red; width: 55%;  display: inline-block;">
+					<table align="center"   >
+						<tr>
+							<th width="200px;">아이디</th>
+							<td><input id="userId" type="text" maxlength="13"
+								name="userId" requi#f53f29>
+								<div id="checkId" class="checkInfo" style="font-size: 0.7em"></div></td>
+							<!--requi#f53f29 미입력시 값을 입력하세요 문구뜸  -->
+							<!-- <td width ="200px"><div id="idCheck" class = "btns"">중복확인</div></td> -->
+						</tr>
+						<tr>
+							<th>비밀번호</th>
+							<td><input id="userPwd" type="password" maxlength="20"
+								name="userPwd" requi#f53f29>
+								<div id="checkPwd" class="checkInfo" style="font-size: 0.7em"></div></td>
+						</tr>
+						<tr>
+							<th>비밀번호 확인</th>
+							<td><input id="userPwd2" type="password" maxlength="20"
+								name="userPwd2" requi#f53f29>
+								<div id="checkPwd2" class="checkInfo" style="font-size: 0.7em"></div></td>
+						</tr>
+						<tr>
+							<th>  이름 </th>
+							<td><input id = "userName" type = "text" maxlength="5" name="userName" requi#f53f29>
+							<div id = "checkName" class = "checkInfo" style = "font-size : 0.7em"></div></td>
+						</tr>
+						<tr>
+							<th>생년월일</th>
+							<td>
+								<div id="joinTdbirth">
+									<input type="text" id="RRN" maxlength="6" name="userRRN" placeholder="191129"
+										style="width: 159px;margin-right:5px;" requi#f53f29>
+									<input id="genderM" type="radio" name="gender" value="M"
+										style="width: 18px; height: 18px;" requi#f53f29 checked>
+									<label for="genderM">남</label> <input id="genderY"
+										type="radio" name="gender" value="F"
+										style="width: 18px; height: 18px; " requi#f53f29> <label
+										for="genderY">여</label>
+								</div>
+								<div id="checkRRN" class="checkInfo" style="font-size: 0.7em"></div>
+							</td>
+						</tr>
+
+						<tr>
+							<th>연락처</th>
+							<td><select id="tel0" class="phone" name="phone1"
+								style="width: 90px; margin-left: 18px; height: 48px;">
+									<option value="010">010</option>
+									<option value="011">011</option>
+									<option value="016">016</option>
+									<option value="019">019</option>
+							</select> <input id="tel1" class="phone" type="tel" maxlength="4"
+								name="phone2" style="width: 130px; margin-left: 15px;">
+								<input id="tel2" class="phone" type="tel" maxlength="4"
+								name="phone3" style="width: 130px; margin-left: 15px;">
+
+							</td>
+						</tr>
+						<tr>
+							<th>이메일</th>
+							<td id="emailPt"><input type="text" name="emailId"
+								style="width: 141px; margin-right: 5px;"
+								requi#f53f29="requi#f53f29"><em>@</em> <input
+								type="text" name="email2" value="naver.com"
+								style="width: 220px; margin-left: 0px;" ReadOnly="true"
+								placeholder="naver.com"></td>
+							<td><select id="selctEmail" name="selctEmail" class="info"
+								style="width: 150px; margin-left: 0px; height: 40px;"
+								onchange="SetEmailTail(selctEmail.options[this.selectedIndex].value)">
 									<!-- <option value = "notSelected">====선택====</option> -->
-									<option value = "naver.com">naver.com</option> 
-									<option value = "goole.com">google.com</option>
-									<option value = "hanmail.net">hanmail.net</option>
-									<option value = "yahoo.com">yahoo.com</option>
-									<option value = "nate.com">nate.com</option>
-									<option value = "hotmail.com">hotmail.com</option>
-									<option value = "daum.net">daum.net</option>
-									<option value = "etc">직접입력</option>
-								</select>
-								</td>
-							</tr>
-							<tr>
-					<th>   우편번호</th>
-					<td>
-						<input type="text" name="post" class="postcodify_postcode5" value="" size="3" readonly>
-					</td>
-					
-					<td>
-						<button type="button" id="postcodify_search_button">검색</button>
-					</td>
-					
-				</tr>
-				<tr>
-					<th>도로명 주소</th>
-					<td><input type="text" name="address1" class="postcodify_address" value="" readonly></td>
-				</tr>
-				<tr>
-					<th>상세 주소</th>
-					<td><input type="text" name="address2" class="detailAdd" value=""></td>
-				</tr>
-				<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-				<script>
+									<option value="naver.com">naver.com</option>
+									<option value="goole.com">google.com</option>
+									<option value="hanmail.net">hanmail.net</option>
+									<option value="yahoo.com">yahoo.com</option>
+									<option value="nate.com">nate.com</option>
+									<option value="hotmail.com">hotmail.com</option>
+									<option value="daum.net">daum.net</option>
+									<option value="etc">직접입력</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th>주요활동지</th>
+							<td><input type="text" name="address"
+								class="postcodify_address" value="" readonly></td>
+							<td>
+								<button type="button" id="postcodify_search_button"
+									style="size:">검색</button>
+							</td>
+						</tr>
+
+						<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+						<script>
 					$(function(){
 						$("#postcodify_search_button").postcodifyPopUp();
 					});
 				</script>
-				
-						</table>
-						<table id = "personinfo" align = "center">
-							<tr>
-								<td>
-									<p><span style = "font-size:18px;">
-										필수동의 항목 및 개인정보 수집 및 이용 동의(선택),마케팅 정보 수신(선택)에 모두 동의합니다.</span><input type = "checkbox" id = "userinfo1"></p>
-																		
-								</td>
-							</tr>
-							
-						</table>
-						<div align = "center">
-							<!-- submit 방법 1 (함수활용해서 submit하기 )(requi#f53f29동작 안함) -->
-							<!-- <div class = "btns" id = "joinBtn" onclick = "insertMember();">가입하기</div> 함수방식은 requi#f53f29 적용이안됨 -->
-							<input type="button" class = "btns" id = "joinBtn" onclick="insertMember()" value="가입하기">
-							<!-- submit 방법 2 -->
-							<!-- submit버튼으로 만들어서 실행해야 input태그들의 requi#f53f29이 발동함 -->
-							
-							<!-- InsertMemberServlet 만들러 감 -->
-							<!-- <div class = "btns" id = "goMain" onclick = "goMain();">메인으로</div> -->
-							<input type="button" class = "btns" id = "goMain" onclick="goMain()" value="메인으로">
-						</div>
-					</form>
-				</div>
-				
-				
-				
-				<!-- 중복체크 팝업창 -->
-				<div id = "idCheckPop">
+						
+						
+					</table>
+					</div>
+					
+					
+					
+					<div style = "border: 2px solid red;  display: inline-block; width: 40%;">
+					<table align="center"  border = "1"  style  = "width: 100%;"> 
+						<tr>
+							<td colspan="4" style="text-align : center;">프로필사진</td>
+						</tr>
+						<tr>
+							<td class="profile" colspan="2">
+						
+						<script src = "https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js">
+						</script>
+						<canvas
+							  id = "canvas">
+						</canvas>
+							</td>
+							<td colspan="2">
+							<input
+							       id = "filup"
+							       type = "file"
+							       multiple = "false"
+							       accept = "image/*"
+							       onchange = "upload()" style = "width: 280px;">
+							</td>
+						</tr>
+						<script>
+						function upload()
+						{
+						  var Ican = document.getElementById ("canvas");
+						  var proup = document.getElementById ("filup");
+						  var ima1 = new SimpleImage (proup);
+						  ima1.drawTo (Ican);
+						}
+						</script>
+						<tr>
+							<td colspan="4" style="text-align : center;">
+								포지션
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" id="GK" name="position" value="골키퍼" style = "width: 20px;">
+								<label for="sports">골키퍼</label>
+							</td>
+							<td>
+								<input type="checkbox" id="DF" name="position" value="수비수" style = "width: 20px;">
+								<label for="climbing">수격수</label>
+							</td>
+							<td>
+								<input type="checkbox" id="MF" name="position" value="미드필더" style = "width: 20px;">
+								<label for="fishing">미드필더</label>
+							</td>
+							<td>
+								<input type="checkbox" id="FW" name="position" value="공격수" style = "width: 20px;">
+								<label for="cooking">공격수</label>
+							</td>
+						</tr>
+					</table>
+					</div>
+					
+					<table id="personinfo" align="center">
+						<tr>
+							<td>
+								<p>
+									<span style="font-size: 18px;"> KHFIFAOFFLINE에 가입하시는 것에
+										대해 동의합니다.</span><input type="checkbox" id="userinfo1">
+								</p>
+
+							</td>
+						</tr>
+					</table>
+					
+					<div align="center">
+						<!-- submit 방법 1 (함수활용해서 submit하기 )(requi#f53f29동작 안함) -->
+						<!-- <div class = "btns" id = "joinBtn" onclick = "insertMember();">가입하기</div> 함수방식은 requi#f53f29 적용이안됨 -->
+						<input type="button" class="btns" id="joinBtn"
+							onclick="insertMember()" value="가입하기">
+						<!-- submit 방법 2 -->
+						<!-- submit버튼으로 만들어서 실행해야 input태그들의 requi#f53f29이 발동함 -->
+
+						<!-- InsertMemberServlet 만들러 감 -->
+						<!-- <div class = "btns" id = "goMain" onclick = "goMain();">메인으로</div> -->
+						<input type="button" class="btns" id="goMain" onclick="goMain()"
+							value="메인으로">
+					</div>
+				</form>
+			</div>
+
+
+
+			<!-- 중복체크 팝업창 -->
+			<div id="idCheckPop">
 				<h1>test</h1>
-				</div><!-- container -->
-			</div><!-- mainContent -->								
+			</div>
+			<!-- container -->
 		</div>
-	
-	
-	
-	
-	
+		<!-- mainContent -->
+	</div>
+
+
+
+
+
 	<script>
 	
 	function SetEmailTail(emailValue) {
@@ -428,7 +545,7 @@ th{
 			var idRe = /^[a-z,A-z,0-9]{4,12}$/;
 
 			$.ajax({
-				url : "/KH_Groupware/checkId.me",
+				url : "",
 				data : {
 					userId : userId
 				},
@@ -561,7 +678,7 @@ th{
 		});
 		
 		$("#RRN").keyup(function() {
-			var RRNre = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/
+			var RRNre = /^([0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/
 			var rrn = $("#RRN").val();
 
 			
@@ -597,21 +714,18 @@ th{
 				$("#userPwd2").focus();
 			}else if(nameCheck  == false){
 				alert("이름를 확인해주세요.");
-				$("#userName").focus();
+				$("#name").focus();
 			}else if(phoneCheck  == false){
 				alert("전화번호를 확인해주세요.");
 				$("#tel1").focus();
 			}else if(rrnCheck  == false){
 				alert("생년월일를 확인해주세요.");
 				$("#RRN").focus();
-			}else if($("input:radio[name='userGender']").is(":checked")==false){
+			}else if($("input:radio[name='gender']").is(":checked")==false){
 				alert("성별을 선택해주세요.");
-				$("input:radio[name='userGender']").focus();
+				$("input:radio[name='gender']").focus();
 			}else if($("#emailId").val() == ""){
 				alert("이메일을 입력해주세요.");
-				$("#emailId").focus();
-			}else if($("#address").val() == ""){
-				alert("주소를 입력해주세요.");
 				$("#emailId").focus();
 			}else{
 				if(!confirm("정말로 회원가입하시겠습니까 ?")){
