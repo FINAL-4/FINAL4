@@ -36,8 +36,8 @@
 		  border: none;
 		  cursor: pointer;
 		  width: 100%;
-		}
-		
+		}  
+		 
 		button:hover {
 		  opacity: 0.8;
 		}
@@ -55,9 +55,7 @@
 		  margin: 24px 0 12px 0;
 		  position: relative;
 		}
-		
 
-		
 		.container {
 		  padding: 16px;
 		}
