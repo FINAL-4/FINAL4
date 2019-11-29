@@ -1,11 +1,14 @@
 package com.kh.FIFAOFFLINE.player.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.FIFAOFFLINE.player.model.exception.PlayerException;
 import com.kh.FIFAOFFLINE.player.model.service.PlayerService;
@@ -17,21 +20,41 @@ public class PlayerController {
 	@Autowired
 	private PlayerService pService;
 	
+	// 용병 메인페이지 (개인용병리스트 + 팀용병리스트)
 	@RequestMapping("playMain.pl")
-	public String playMain() {
-		return "player/listPlayer";
+	public ModelAndView playMain(ModelAndView mv) {
+		ArrayList<P_RECRUIT> list = pService.teamPlayList();
+		
+		if(list != null && list.size() > 0) {
+			mv.addObject("list", list);
+			mv.setViewName("player/listPlayer");
+		} else {
+			throw new PlayerException("팀용병 리스트 조회 실패");
+		}
+		return mv;
 	}
 	
-	@RequestMapping("playList.pl")
-	public String playList() {
-		return "player/applyDetailPlayer";
+	// 용병 모집 리스트 글 누르면 상세보기 페이지
+	@RequestMapping("playTeamDetail.pl")
+	public ModelAndView playTeamDetail(ModelAndView mv, int rNum) {
+		P_RECRUIT pRecruit = pService.playTeamDetail(rNum);
+		System.out.println("controller test rNum : " + rNum);
+		if(pRecruit != null) {
+			mv.addObject("pRecruit", pRecruit);
+			mv.setViewName("player/applyDetailPlayer");
+		} else {
+			throw new PlayerException("용병 모집 글 디테일 보기 실패");
+		}
+		return mv;
 	}
 	
+	// 용병 모집 글 작성 페이지(팀)
 	@RequestMapping("playTeamCreate.pl")
 	public String playTeamCreate() {
 		return "player/createTeamPlayer";
 	}
 	
+	// 용병 등록 글 작성 페이지(개인)
 	@RequestMapping("playPersonCreate.pl")
 	public String playPersonCreate() {
 		return "player/createPersonPlayer";
@@ -61,9 +84,29 @@ public class PlayerController {
 		
 		// System.out.println("Controller test : " + result);
 		if(result > 0) {
-			return "redirect:play/listPlayer";			
+			return "redirect:playMain.pl";			
 		} else {
 			throw new PlayerException("용병 모집 등록 실패");
 		}
 	}
+	
+	// 용병 모집 등록글 수정   
+	@RequestMapping(value="playTeamModify.pl")
+	public String playTeamModify() {
+		return "player/listPlayer";
+	}
+	
+	// 용병 모집 등록글 삭제
+	@RequestMapping(value="teamPlayListDelete.pl")
+	public String teamPlayListDelete(HttpServletRequest request, int rNum) {
+		int result = pService.teamPlayListDelete(rNum);
+		System.out.println("삭제 테스트 : " + result);
+		if(result > 0) {
+			return "redirect:playMain.pl";
+		} else {
+			throw new PlayerException("용병 모집 등록글 삭제 실패");
+		}
+	}
+	
+	
 }

@@ -30,7 +30,6 @@
 	font-size:2.4em;
 	font-weight: bold;
 	margin-top : 30px;
-	margin-left: 270px;
 }
 #detailContent1{
 	margin-left:150px;
@@ -45,7 +44,7 @@
 	margin-top: 50px;
 	font-size:2em;
 	border-collapse: separate;
-	border-spacing: 0 30px;
+	border-spacing: 60px 30px;
 	letter-spacing: 4px;
 }
 #btn{
@@ -74,7 +73,7 @@
 }
 #applyDetail{
 	margin-top:50px;
-	margin-left:50px;
+	margin-left:30px;
 }
 #applyDetailTable{
 	width:320px;
@@ -106,14 +105,14 @@
 <jsp:include page = "../common/header.jsp"/>
 <body>
 <div id="content" style="margin-top: 15px; border-bottom: 5px solid grey; border-top: 5px solid grey; margin-left: 5%; margin-right:5%; width: 90%;">
-<div id = "title"> 모집글 상세보기 </div>
-	<div class="ha-waypoint" data-animate-down="ha-header-show" data-animate-up="ha-header-subshow" style="height: 900px; width: 90%; border: black; margin: auto;">
+<div id = "title"> ${pRecruit.rTitle } </div>
+	<div class="ha-waypoint" data-animate-down="ha-header-show" data-animate-up="ha-header-subshow" style="height: 1000px; width: 90%; border: black; margin: auto;">
 		<form>																									<!-- 730 -->
 		<div style = "float:left;"> 
 		<table align = center id = pictureContent>
 			<tr>
 				<img id = "picture" src="resources/images/logo.png"> 
-				<td> 팀 이름 박기 </td>
+				<td> 팀 이름 어떻게 받지 </td>
 			</tr>
 		</table>
 		</div>
@@ -123,32 +122,35 @@
 		<table id = detailContent1> 
 			<tr>
 				<td>팀 장</td> 
-				<td> 팀장 이름 받아오기 </td>
+				<td> 팀장 이름 어떻게 받지 </td>
 			</tr>
 			<tr>
 				<td>사용 경기장</td>
-				<td> 경기장 받아오기 </td>
+				<td>${pRecruit.rPlace } </td>
 			</tr>
 			<tr>
 				<td>경기 날짜 </td>
-				<td> 경기 날짜 받아오기 </td>
+				<td>${pRecruit.rDay }</td>
 			</tr>
 			<tr>
 				<td>경기 시간</td>
-				<td> 경기 시간 받아오기</td>
+				<td>${pRecruit.rsHour } : ${pRecruit.rsMin } ~ <br> 
+				    ${pRecruit.rfHour } : ${pRecruit.rfMin }
+				</td>
 			</tr>
 			<tr>
 				<td> 마감인원 </td>
-				<td> 인원 받아오기 </td>
+				<td>${pRecruit.deadline } 명</td>
+			</tr>
+			<tr>
+				<td> 참가비 </td>
+				<td>${pRecruit.rMoney } 원</td>
 			</tr>
 			<tr>
 				<td align> 모집내용 </td>
 			</tr>
 			<tr>
-				<td colspan=2> &nbsp;&nbsp;&nbsp;모집내용받아오기</td>
-			</tr>
-			<tr>
-				<td colspan=2> 신청을 신청하기를 눌러주세요. <br> 수락 여부를 메일로 보내드리겠습니다. (24시간 이내 발송) </td>
+				<td colspan=2> &nbsp;&nbsp;&nbsp;${pRecruit.rContent }</td>
 			</tr>
 		</table>
 		</div>
@@ -157,32 +159,35 @@
 		<table id = detailContent2> 
 			<tr>
 				<td>팀 장</td> 
-				<td> 팀장 이름 받아오기 </td>
+				<td> 팀장 이름 어떻게 받지 </td>
 			</tr>
 			<tr>
 				<td>사용 경기장</td>
-				<td> 경기장 받아오기 </td>
+				<td>${pRecruit.rPlace } </td>
 			</tr>
 			<tr>
 				<td>경기 날짜 </td>
-				<td> 경기 날짜 받아오기 </td>
+				<td>${pRecruit.rDay }</td>
 			</tr>
 			<tr>
 				<td>경기 시간</td>
-				<td> 경기 시간 받아오기</td>
+				<td>${pRecruit.rsHour } : ${pRecruit.rsMin } ~ <br> 
+				    ${pRecruit.rfHour } : ${pRecruit.rfMin }
+				</td>
 			</tr>
 			<tr>
 				<td> 마감인원 </td>
-				<td> 인원 받아오기 </td>
+				<td>${pRecruit.deadline } 명</td>
+			</tr>
+			<tr>
+				<td> 참가비 </td>
+				<td>${pRecruit.rMoney } 원</td>
 			</tr>
 			<tr>
 				<td align> 모집내용 </td>
 			</tr>
 			<tr>
-				<td colspan=2> &nbsp;&nbsp;&nbsp;모집내용받아오기</td>
-			</tr>
-			<tr>
-				<td colspan=2> 신청을 신청하기를 눌러주세요. <br> 수락 여부를 메일로 보내드리겠습니다. (24시간 이내 발송) </td>
+				<td colspan=2> &nbsp;&nbsp;&nbsp;${pRecruit.rContent }</td>
 			</tr>
 		</table>
 		</div>
@@ -190,18 +195,18 @@
 		글 작성자가 로그인 시 신청하기 버튼 대신  글삭제하기 + 신청현황 보여주기
 		글 작성자 제외 로그인 시 글 삭제하기 + 신청현황 버튼 안보이기  
 		신청하기는 글 작성자 제외 모두 가능 (용병은 같은 팀원에서는 신청하기 못하게 신청하면 원래 같은 팀이라는 문구 나오게) 
-		근데 수정하기는 모집글을 살려서 다시 수정해야 하지 않을까요 ??? 
 		-->
 			<div id = btn>
 				<div id = btnPosition1>
-				<c:url var="playMain" value="playMain.pl">
-				</c:url>
-				<input type = button id = recruitBtn value = "모집 리스트 보기" onclick = "location.href='${playMain}'">
+				<input type = button id = recruitBtn value = "모집 리스트 보기" onclick = "location.href='playMain.pl'">
 				<input type = button id = applyBtn value = "신청하기"> <br> <br>
 				</div>
 				<div id = btnPosition2>
-				<input type = button id = deleteBtn value = "글 삭제하기">
-				<input type = button id = modifyBtn value = "글 수정하기"> <br> <br>
+				<c:url var="tplDelete" value="teamPlayListDelete.pl">
+					<c:param name="rNum" value="${P_RECRUIT.rNum }"/>
+				</c:url>
+				<input type = button id = deleteBtn value = "글 삭제하기" onclick="location.href='${tplDelter}'">
+				<input type = button id = modifyBtn value = "글 수정하기" onclick = "location.href='playTeamModify.pl'"> <br> <br>
 				<input type = button id = applyingBtn value = "신  청  현  황">
 				</div>
 			</div>

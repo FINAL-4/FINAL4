@@ -275,7 +275,7 @@ input, select{
 <jsp:include page = "../common/header.jsp"/>
 <body>
 <div id="outer" style="margin-top: 15px; border-bottom: 5px solid grey; border-top: 5px solid grey; margin-left: 5%; margin-right:5%; width: 90%; ">
-<div id = "title">팀 용병 모집</div>
+<div id = "title">팀 용병 모집 글 수정</div>
 	<div class="ha-waypoint" data-animate-down="ha-header-show"
 		data-animate-up="ha-header-subshow"
 		style="height: 730px; width: 90%; border: black; margin: auto;">
@@ -284,7 +284,7 @@ input, select{
 	<div class="row">
 		<div class="container">
 			<div class="row">
-				<form id = "createForm" action="playCreate.pl" method = "post">
+				<form id = "modifyForm" action="playTeamModify.pl" method = "post">
 					<div class="col-xs-10 col-xs-offset-1" id="container">
 						<div class="res-steps-container">
 							<div class="res-steps res-step-one active"
@@ -326,14 +326,14 @@ input, select{
 					<tr>
 						<td style = "width: 40%; font-size: 20px; text-align: center">용병 모집 제목</td>
 						<td style = "width: 60%;">
-							<input id = "playerTitle" name = "rTitle" type = "text" style = "width: 400px;">
+							<input id = "playerTitle" name = "rTitle" type = "text" value="${P_RECRUIT.rTitle }" style = "width: 400px;">
 						</td>
 					</tr>
 					<tr>
 						<td style = "width: 40%; font-size: 20px; text-align: center">용병 인원 설정</td>
 						<td>
 							<select id = "playerSelect" name = "deadline" style = "width: 100%;">
-								<option value = "">==선택==</option>
+								<option value = "0">${P_RECRUIT.deadline }</option>
 								<option value = "1">1명</option>
 								<option value = "2">2명</option>
 								<option value = "3">3명</option>
@@ -510,20 +510,22 @@ input, select{
 					<button type="button"
 						class="btn btn-default btn res-btn-orange"
 						data-class=".res-form-four">Back</button>
-					<button class="btn" onclick = "submitCreate();" data-class=".res-form-four">Submit</button>
+					<button type="button" 
+						class="btn" onclick = "submitModify();"
+						data-class=".res-form-four">Submit</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
-		</div>
-		</div>
-		</form>
+			</div>
+		</section>
 	</div>
-	</div>
-</div>
-</section>
-</div>
 </div>
 
 <script type="text/javascript">
-	function submitCreate(){		
+	function submitModify(){		
 		if($$("#playerTitle").val() == ""){
 			alert("매치 제목을 입력하세요.");
 			$$("#basicLabel").click();
@@ -552,7 +554,7 @@ input, select{
 			alert("남기실 말을 입력하세요.");
 			return false;
 		}
-		$$("#createForm").submit();
+		$$("#modifyForm").submit();
 	}
 </script>
 	<!-- 카카오 맵 -->

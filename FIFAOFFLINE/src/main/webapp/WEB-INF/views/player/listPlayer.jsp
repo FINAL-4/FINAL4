@@ -1,3 +1,4 @@
+<%@page import="com.sun.glass.ui.Size"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -318,38 +319,37 @@ div[id^="player"]{
 			<thead>
 			<tr>
 				<th class="playList">팀 로고</th>
-				<th class="playList">제목</th>
 				<th class="playList">팀 명</th>
-				<th class="playList">팀장이름</th>
+				<th class="playList">제목</th>
 				<th class="playList">경기장</th>
 				<th class="playList">경기 날짜</th>
 				<th class="playList">경기 시간</th>
 				<th class="playList">용병 마감 인원</th>
+				<th class="playList">참가비</th>
 			</tr>
 			</thead>
-			
-			<%-- <c:forEach var="name" items="${nameList}" varStatus="status">
-    			<p>${status.count} : <c:out value="${name}" /></p>
-			</c:forEach> --%>
 			<tbody>
-			<%for(int i=1; i<11; i++) {%>
-  			<tr class="teamselector" onclick="tdetail(<%=i%>);">
+			<c:forEach var="tp" items="${list }">
+				<c:url var="ptDetail" value="playTeamDetail.pl">
+					<c:param name="rNum" value="${tp.rNum }"/>
+				</c:url>
+  				<tr class="teamselector" onclick="location.href='${ptDetail}'">
 			    <td class="playList">
 			    	<div style="height:100%; width:80" class="Timgtag">
-			    		<input type="hidden" value="<%=i%>" class="hiddenTno<%=i%>">
+			    		<%-- <input type="hidden" value="<%=i%>" class="hiddenTno<%=i%>"> --%>
 			    		<img src="<%=request.getContextPath()%>/resources/images/logo.png" style="width:100%; height:100%; padding-left:25px;">
 			    	</div>
 			    </td>
-			    <td class="playList">contents1</td>
-			    <td class="playList">contents2</td>
-			    <td class="playList">contents3</td>
-			    <td class="playList">contents4</td>
-			    <td class="playList">contents5</td>
-			    <td class="playList">contents6</td>
-			    <td class="playList">contents7</td>
+			    <td class="playList">팀명은 어케 받아야하지 ? join 문 써야하는건가 </td>
+			    <td class="playList">${tp.rTitle }</td>
+			    <td class="playList">${tp.rPlace }</td>
+			    <td class="playList">${tp.rDay }</td>
+			    <td class="playList">${tp.rsHour } : ${tp.rsMin } ~ <br> ${tp.rfHour } : ${tp.rfMin }</td>
+			    <td class="playList">${tp.deadline } 명</td>
+			    <td class="playList">${tp.rMoney } 원</td>
   			</tr>
   			<tr class="spacetr"></tr>
-  			<% }%>
+			</c:forEach>
   			</tbody>
 		</table>
 	</div>
@@ -372,7 +372,7 @@ div[id^="player"]{
 	});
 
 function tdetail(id){
-	location.href="playList.pl";
+	location.href="playTeamDetail.pl";
 }
 function playerRecruit(){  
 	location.href="playTeamCreate.pl";
@@ -429,7 +429,7 @@ function toggleTrsf(id) {
 		card.css("transform", "");
 		card.addClass("change");
 	}   
-}
+}  // 여기까지 카드 뒤집기 
 </script>
 
 <jsp:include page = "../common/footer.jsp"/>
