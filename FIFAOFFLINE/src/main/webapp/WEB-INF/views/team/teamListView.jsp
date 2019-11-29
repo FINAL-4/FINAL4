@@ -342,29 +342,7 @@ div[id^="test"]{
 		$.ajax({
 			url:"moreList.tm",
 			data:{page:page},
-			/* dataType:"json", */
 			success:function(data){
-				/* $tbody = $("tbody");
-				var appendStr="";
-				for(var i in data.list){
-					appendStr += "<tr class='teamselector' onclick='tdetail(${status.count})'>";
-					appendStr += "<td class='teamtest'>";
-					appendStr += "<div style='height:200px; width:200px' class='Timgtag'>";
-					appendStr += "<input type='hidden' value='${status.count}' class='hiddenTno${status.count}'>";
-					appendStr += "<img id='mImg${status.count}' src='/resource/images/testimage/${team.teamImage}.png' style='width:100%; height:100%; padding-left:25px;'>";
-					appendStr += "</div>";
-					appendStr += "</td>";
-					appendStr += "<td class='teamtest'>${team.teamName}</td>";
-					appendStr += "<td class='teamtest'>${team.userName}</td>";
-					appendStr += "<td class='teamtest'>${team.teamArea}</td>";
-					appendStr += "<td class='teamtest'>${team.teamIntro}</td>";
-					appendStr += "<td class='teamtest'>${status.count}</td>";
-					appendStr += "</tr>";
-					appendStr += "<tr class='spacetr'>"; 
-					
-				}*/
-				
-					
 				if(${pi.maxPage+1}!=page){
 									
 					$tbody = $("tbody");
@@ -413,7 +391,7 @@ if (event.target == modal) {
 }
 }
 
-$(function(){
+/* $(function(){
 	$('img').hover(function(){
 		modal.style.display="block";
 	});
@@ -421,7 +399,7 @@ $(function(){
 	$(".close").click(function(){
 		modal.style.display="none";
 	});
-});
+}); */
 </script>
 
 <jsp:include page = "../common/footer.jsp"/>

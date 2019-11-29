@@ -73,7 +73,8 @@
 	}
 
 #banner{
-	width: 100%;
+	
+	width: 60%;
 	height: 350px;
 	margin-top: 0px;
 	margin-bottom: 50px;
@@ -107,12 +108,14 @@
 </style>
 </head>
 
+
+
 <body>
- <jsp:include page = "../common/header.jsp"/> 
 <div id="container" style="overflow: auto;"><!-- container -->
    <div id="mainContent" style="overflow: auto;"><!-- mainContent -->
 			<div id = "banner">	
-				<!-- <img src= alt="image" border="0"> -->
+			
+				<a href="home.do"><img src="resources/images/fifalogo1.png" alt="image" border="0"></a>
 				<div  id = "mainTitle"><b style="margin-bottom: 3000px;">아이디/비밀번호 찾기</b></div>
 			</div>
 			<div id = "outer">
@@ -247,7 +250,7 @@ function sendEmail(idOrPwd){
 
 	if(idOrPwd == "id"){
 		$.ajax({
-			url:"/KH_Groupware/findId.me",
+			url:"findId.me",
 			data:{
 				userName : $("#nameI").val(),
 				emailId : $("#emailPtI").val(),
@@ -269,7 +272,7 @@ function sendEmail(idOrPwd){
 	}
 	if(idOrPwd == "pwd"){
 		$.ajax({
-			url : "findPwd.me",
+			url : "/KH_Groupware/findPwd.me",
 			data : {
 				userId : $("#idP").val(),
 				emailId : $("#emailPtP").val(),

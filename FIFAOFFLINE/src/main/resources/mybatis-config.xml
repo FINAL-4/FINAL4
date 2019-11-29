@@ -24,8 +24,9 @@
 		
 		
 		<!-- ======================= 서재웅 ========================= -->
-		<typeAlias type="com.kh.FIFAOFFLINE.player.model.vo.Player" alias="Player"/>
-		
+		<typeAlias type="com.kh.FIFAOFFLINE.player.model.vo.P_RECRUIT" alias="P_RECRUIT"/>
+		<typeAlias type="com.kh.FIFAOFFLINE.player.model.vo.P_LIST" alias="P_LIST"/>
+		<typeAlias type="com.kh.FIFAOFFLINE.player.model.vo.P_ENROLL" alias="P_ENROLL"/>
 		
 		
 		

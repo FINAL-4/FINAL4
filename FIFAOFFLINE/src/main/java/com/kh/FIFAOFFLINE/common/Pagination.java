@@ -1,5 +1,6 @@
 package com.kh.FIFAOFFLINE.common;
 
+
 import com.kh.FIFAOFFLINE.team.model.vo.PageInfo;
 
 public class Pagination {
@@ -47,3 +48,4 @@ public class Pagination {
 	      // SelectBoardListServlet으로 다시 ㄱㄱ씽~!
 	   }
 }
+
