@@ -334,8 +334,9 @@ canvas
 							<th>생년월일</th>
 							<td>
 								<div id="joinTdbirth">
-									<input type="text" id="RRN" maxlength="6" name="userRRN" placeholder="191129"
+									<input type="text" id="birthDay" maxlength="6" name="birthDay" placeholder="191129"
 										style="width: 159px;margin-right:5px;" requi#f53f29>
+										
 									<input id="genderM" type="radio" name="gender" value="M"
 										style="width: 18px; height: 18px;" requi#f53f29 checked>
 									<label for="genderM">남</label> <input id="genderY"
@@ -446,22 +447,42 @@ canvas
 						</tr>
 						<tr>
 							<td>
-								<input type="checkbox" id="GK" name="position" value="골키퍼" style = "width: 20px;">
-								<label for="sports">골키퍼</label>
+								<input type="checkbox" id="GK" name="position" value="GK" style = "width: 20px;">
+								<label for="GK">골키퍼</label>
 							</td>
 							<td>
-								<input type="checkbox" id="DF" name="position" value="수비수" style = "width: 20px;">
-								<label for="climbing">수격수</label>
+								<input type="checkbox" id="DF" name="position" value="DF" style = "width: 20px;">
+								<label for="DF">수격수</label>
 							</td>
 							<td>
-								<input type="checkbox" id="MF" name="position" value="미드필더" style = "width: 20px;">
-								<label for="fishing">미드필더</label>
+								<input type="checkbox" id="MF" name="position" value="MF" style = "width: 20px;">
+								<label for="MF">미드필더</label>
 							</td>
 							<td>
-								<input type="checkbox" id="FW" name="position" value="공격수" style = "width: 20px;">
-								<label for="cooking">공격수</label>
+								<input type="checkbox" id="FW" name="position" value="FW" style = "width: 20px;">
+								<label for="FW">공격수</label>
 							</td>
 						</tr>
+						
+						<script>
+function checkboxArr() {
+    var checkArr = [];     // 배열 초기화
+    $("input[name='position']:checked").each(function(i)){
+        checkArr.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
+    }
+
+    $.ajax({
+        url: 'join.me'
+        , type: 'post'
+        , dataType: 'text'
+        , data: {
+            valueArrTest: checkArr
+        }
+    });
+}
+
+</script>
+						
 					</table>
 					</div>
 					
@@ -677,24 +698,24 @@ canvas
 			}
 		});
 		
-		$("#RRN").keyup(function() {
+		$("#birthDay").keyup(function() {
 			var RRNre = /^([0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/
-			var rrn = $("#RRN").val();
+			var rrn = $("#birthDay").val();
 
 			
 			if (rrn == ""  ) {
 				$("#checkRRN").css("color", "#f53f29");
-				$("#RRN").css("border", "2px solid #f53f29");
+				$("#birthDay").css("border", "2px solid #f53f29");
 				$("#checkRRN").text("번호을 입력하세요.");
 				rrnCheck  = false;
 			} else if (!RRNre.test(rrn)) {
 				$("#checkRRN").css("color", "#f53f29");
-				$("#RRN").css("border", "2px solid #f53f29");
+				$("#birthDay").css("border", "2px solid #f53f29");
 				$("#checkRRN").text("정확한 생년월일 8자리");
 				rrnCheck  = false;
 			} else {
 				$("#checkRRN").css("color", "blue");
-				$("#RRN").css("border", "2px solid blue");
+				$("#birthDay").css("border", "2px solid blue");
 				$("#checkRRN").text("유효한 생년월일입니다.");
 				rrnCheck  = true;
 			}
@@ -720,7 +741,7 @@ canvas
 				$("#tel1").focus();
 			}else if(rrnCheck  == false){
 				alert("생년월일를 확인해주세요.");
-				$("#RRN").focus();
+				$("#birthDay").focus();
 			}else if($("input:radio[name='gender']").is(":checked")==false){
 				alert("성별을 선택해주세요.");
 				$("input:radio[name='gender']").focus();
@@ -746,7 +767,7 @@ canvas
 		
 		// 메인으로 이동 함수
 		function goMain() {
-			location.href = "<%=request.getContextPath()%>/index.jsp";
+			location.href = "home.do";
 		}
 		
 		
