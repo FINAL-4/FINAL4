@@ -37,11 +37,10 @@ table {
 
 }
 
-td {
+/* td {
   padding: 16px;
   height:170px;
   width:170px;
-  /* border-bottom: 1px solid #444444; */
   font-size:20px;
   text-align:center;
   align:center;
@@ -55,18 +54,7 @@ th {
 	font-size:22px;
 	text-align:center;
 	align:center;
-	/* border-bottom: 1px solid #444444; */
 }
-
-/* .teamtest{
-	text-align:center;
-	align:center;
-} */
-
-/* tr{
-  background-color:#F2FF9D;
-  cursor:pointer;
-} */
 
 .timgtag{
 	display:inline-block;
@@ -83,12 +71,11 @@ thead tr {
   color: #ffffff;
 }
 tbody tr:nth-child(4n-3) {
-  /* background-color: #bbdefb; */
   background-color: #e3f2fd;
 }
 tbody tr:nth-child(4n-1) {
   background-color: #e3f2fd;
-}
+} */
 
 #teamMenu .menu__item-name::after,
 #teamMenu .menu__item-name::before{
@@ -162,6 +149,43 @@ hr.new4 {
 	border: 1px solid red;
 }
 
+#matchingList{
+	
+}
+
+
+#matchingList td{
+	padding-left: 15px;
+}
+
+#matchingList h4{
+	font-size: 20px;
+	margin: 0px;
+}
+
+#matchingList h5{
+	font-size: 18px;
+	margin: 0px;
+}
+
+#matchingList h6{
+	font-size: 11px;
+	margin: 0px;
+}
+
+#matchingTable {
+	border-bottom: 2px solid lightgrey;
+	border-top: 2px solid lightgrey;
+	margin-bottom: 2%;
+}
+
+#matchingTable:hover{
+	border-bottom: 2px solid lightgrey;
+	border-top: 2px solid lightgrey;
+	background: lightgrey;
+	cursor: pointer;
+}
+
 
 </style>
 </head>
@@ -169,7 +193,7 @@ hr.new4 {
 
 <body>
 
-<div id = "outer" style = "margin-top:120px;">
+<div id = "outer" style = "margin-top:180px;">
 	
 	
 	<div class="ha-waypoint" data-animate-down="ha-header-show" data-animate-up="ha-header-subshow" style ="width: 90%; height:800px; margin:auto; padding-bottom:0px;">
@@ -194,9 +218,6 @@ hr.new4 {
 					</tr>					
 				</table>
 			</div>
-				
-	
-
 		</div>
 	</div>
 	
@@ -206,43 +227,85 @@ hr.new4 {
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	<div class="ha-waypoint" data-animate-down="ha-header-shrink" data-animate-up="ha-header-show" style = "width: 90%; margin: auto;">
-		<table>
-			<thead>
-			<tr>
-				<th class="teamtest">팀 로고</th>
-				<th class="teamtest">팀 명</th>
-				<th class="teamtest">팀장이름</th>
-				<th class="teamtest">활동지역</th>
-				<th class="teamtest">팀 소개</th>
-				<th class="teamtest">모집 인원 수</th>
-			</tr>
-			</thead>
-			
-			<%-- <c:forEach var="name" items="${nameList}" varStatus="status">
-    			<p>${status.count} : <c:out value="${name}" /></p>
-			</c:forEach> --%>
-			<tbody>
-			<%for(int i=1; i<11; i++) {%>
-  			<tr class="teamselector" onclick="tdetail(<%=i%>);">
-			    <td class="teamtest">
-			    	<div style="height:100%; width:80" class="Timgtag">
-			    		<input type="hidden" value="<%=i%>" class="hiddenTno<%=i%>">
-			    		<img src="<%=request.getContextPath()%>/resources/images/logo.png" style="width:100%; height:100%; padding-left:25px;">
-			    	</div>
-			    </td>
-			    <td class="teamtest">contents1</td>
-			    <td class="teamtest">contents2</td>
-			    <td class="teamtest">contents3</td>
-			    <td class="teamtest">contents4</td>
-			    <td class="teamtest">contents5</td>
-  			</tr>
-  			<tr class="spacetr"></tr>
-  			<% }%>
-  			</tbody>
-		</table>
+		<div id = "matchingList">
+			<c:forEach var="match" items="${mList }" varStatus="status">
+				<table id = "matchingTable"  style  = "height: 150px;" onclick = "goMatchDetail(${match.mId});">
+					<tr style = "height: 33%;">
+						<td rowspan="2" style = "width: 20%; height: 80%; text-align: center;">
+							<div id = "teamLogo" style = "width: 60%; margin-left:20%; margin-right: 20%; border: 1px solid red;">
+								<img alt="" src="">
+							</div>
+						</td>
+						<td colspan="3" style = "width: 80%;"><h4>${match.mTitle }</h4></td>
+					</tr>
+					<tr style = "height: 33%;">
+						<td style = "width: 30%;">
+							<h6>장소</h6>
+							<h5>${match.mLocationName }</h5>
+						</td>
+						<td style = "width: 30%;">
+							<h6>일시</h6>
+							<h5>${match.mDay }</h5>
+						</td>
+						<td style = "width: 20%;">
+							<h6>회비</h6>
+							<h5>${match.dues }원</h5>
+						</td>
+					</tr>
+					<tr style = "height: 33%;">
+						<td style = "width: 20%; text-align: center;">
+							<div id = "teamInfo">
+								<h5>팀이름</h5>
+								<h6>팀장이름</h6>
+							</div>
+						</td>
+						<td>
+							<h6>유형</h6>
+							<h5>${match.mSystem }</h5>
+						</td>
+						<td>
+							<h6>시간</h6>
+							<h5>${match.sHour }:${match.sMinute } ~ ${match.eHour }:${match.eMinute }</h5>
+						</td>	
+						<td>
+							<h6>등록일</h6>
+							<h5>${match.createDate }</h5>
+						</td>	
+						<td>
+							<input type="hidden" name = "mId" value = "">
+						</td>
+					</tr>
+				</table>
+			</c:forEach>
+		</div>
 	</div>
 </div>
+
+
+
+
+<script type="text/javascript">
+	function goMatchDetail(mId){
+		location.href="goMatchDetail.ma?mId="+mId;
+	}
+
+
+</script>
+
+
+
+
+
+
+
+
 
 <script type="text/javascript">
 	function goCreateMatch(){
