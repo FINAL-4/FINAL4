@@ -1,5 +1,7 @@
 package com.kh.FIFAOFFLINE.member.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.FIFAOFFLINE.member.model.exception.MemberException;
 import com.kh.FIFAOFFLINE.member.model.service.MemberService;
 import com.kh.FIFAOFFLINE.member.model.vo.Member;
+import com.kh.FIFAOFFLINE.team.model.service.TeamService;
+import com.kh.FIFAOFFLINE.team.model.vo.Team;
 
 @Controller
 public class MemberController {
@@ -24,6 +28,9 @@ public class MemberController {
 	
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
+	
+	@Autowired
+	private TeamService tService;
 	
 	@RequestMapping("goJoin.me")
 	public String goJoinMember() {
@@ -38,11 +45,15 @@ public class MemberController {
 	@RequestMapping(value = "login.me", method = RequestMethod.POST)
 	public String memberLogin(Member m,HttpSession session) {
 		System.out.println(m);
-		
-		
+
 		Member loginUser=mService.loginMember(m);
+		
+		int userNo = loginUser.getUserNo();
+		ArrayList<Team> myTeam = tService.selectMyTeam(userNo);
+		System.out.println(myTeam);
 		System.out.println(loginUser);
 		if(loginUser !=null) {
+			session.setAttribute("myTeam",myTeam);
 			session.setAttribute("loginUser", loginUser);
 		}else {
 			throw new  MemberException("로그인실패");

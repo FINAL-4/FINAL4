@@ -21,6 +21,8 @@ import com.kh.FIFAOFFLINE.team.model.exception.TeamException;
 import com.kh.FIFAOFFLINE.team.model.service.TeamService;
 import com.kh.FIFAOFFLINE.team.model.vo.PageInfo;
 import com.kh.FIFAOFFLINE.team.model.vo.Team;
+import com.kh.FIFAOFFLINE.team.model.vo.TeamJoinedMember;
+import com.kh.FIFAOFFLINE.team.model.vo.TeamMember;
 
 @Controller
 public class TeamController {
@@ -99,7 +101,8 @@ public class TeamController {
 			jObj.put("userName",t.getUserName());
 			jObj.put("teamName",t.getTeamName());
 			jObj.put("teamImage",t.getTeamImage());
-			jObj.put("teamArea",t.getTeamIntro());
+			jObj.put("teamArea",t.getTeamArea());
+			jObj.put("teamIntro",t.getTeamIntro());
 			jObj.put("teamAdver",t.getTeamAdver());
 			jObj.put("resisterDay",t.getResisterDay());
 			jObj.put("ad_status",t.getAd_status());
@@ -126,4 +129,31 @@ public class TeamController {
 		
 
 	}
+	
+	@RequestMapping("tdetail.tm")
+	public ModelAndView teamDetail(ModelAndView mv,
+									@RequestParam(value="teamNo", required=false) Integer teamNo) {
+
+		// 값이 개같이 나오니깐 그냥 쿼리문하나하나 왔다리갔다리하면서 받아오자 줮같네 ㅡㅡ
+		int tNo = teamNo;
+		
+		Team t = tService.teamDetail(tNo);
+		ArrayList<TeamJoinedMember> joinList = tService.selectJoinList(tNo);
+		ArrayList<TeamMember> memberList = tService.selectMemberList(tNo);
+		
+		if(t != null) {
+			mv.addObject("t",t);
+			mv.addObject("joinList",joinList);
+			mv.addObject("memberList",memberList);
+			mv.setViewName("team/teamDetailView");
+			
+			System.out.println(t);
+		
+		}else {
+			throw new TeamException("팀 자세히보기 실패");
+		}
+	
+		return mv;
+	}
+	
 }
