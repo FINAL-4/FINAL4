@@ -31,8 +31,14 @@ public class PlayerServiceImpl implements PlayerService{
 
 	@Override
 	public int teamPlayListDelete(int rNum) {
-		System.out.println("써비스 test : " + rNum);
+		// System.out.println("써비스 test : " + rNum);
 		return pDao.teamPlayListDelete(rNum);
+	}
+
+	@Override
+	public int playTeamModify(P_RECRUIT pr) {
+		// System.out.println("써비스 수정 test : " + pr);
+		return pDao.playTeamModify(pr);
 	}
 
 	

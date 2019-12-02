@@ -31,7 +31,7 @@
 			},
 			select: function(startDate ,endDate){
 				
-				if(confirm("날짜를 선택하시겠습니까?") == false){
+				if(confirm("날짜를 바꾸시겠습니까?") == false){
 					return false;
 				}
 				
@@ -275,7 +275,7 @@ input, select{
 <jsp:include page = "../common/header.jsp"/>
 <body>
 <div id="outer" style="margin-top: 15px; border-bottom: 5px solid grey; border-top: 5px solid grey; margin-left: 5%; margin-right:5%; width: 90%; ">
-<div id = "title">팀 용병 모집 글 수정</div>
+<div id = "title">${pr.rTitle } 수정</div>
 	<div class="ha-waypoint" data-animate-down="ha-header-show"
 		data-animate-up="ha-header-subshow"
 		style="height: 730px; width: 90%; border: black; margin: auto;">
@@ -284,7 +284,7 @@ input, select{
 	<div class="row">
 		<div class="container">
 			<div class="row">
-				<form id = "modifyForm" action="playTeamModify.pl" method = "post">
+				<form id = "modifyForm" action="teamPlayListModify.pl" method = "post">
 					<div class="col-xs-10 col-xs-offset-1" id="container">
 						<div class="res-steps-container">
 							<div class="res-steps res-step-one active"
@@ -326,14 +326,14 @@ input, select{
 					<tr>
 						<td style = "width: 40%; font-size: 20px; text-align: center">용병 모집 제목</td>
 						<td style = "width: 60%;">
-							<input id = "playerTitle" name = "rTitle" type = "text" value="${P_RECRUIT.rTitle }" style = "width: 400px;">
+							<input id = "playerTitle" name = "rTitle" type = "text" value="${pr.rTitle }" style = "width: 400px;">
 						</td>
 					</tr>
 					<tr>
 						<td style = "width: 40%; font-size: 20px; text-align: center">용병 인원 설정</td>
 						<td>
 							<select id = "playerSelect" name = "deadline" style = "width: 100%;">
-								<option value = "0">${P_RECRUIT.deadline }</option>
+								<option value = "0">${pr.deadline }명</option>
 								<option value = "1">1명</option>
 								<option value = "2">2명</option>
 								<option value = "3">3명</option>
@@ -351,7 +351,7 @@ input, select{
 					<tr>
 						<td style = "width: 40%; font-size: 20px; text-align: center">참가비</td>
 						<td>
-							<input id ="playerMoney" name = "rMoney" onkeyup="checkNumber(this);" type = "text" maxlength="7">
+							<input id ="playerMoney" name = "rMoney" onkeyup="checkNumber(this);" type = "text" maxlength="7" value="${pr.rMoney }">
 						</td>
 					</tr>
 					</table>
@@ -386,10 +386,10 @@ input, select{
 							</td>
 							<td style = "width: 500%">
 								<h6 style = "margin: 0px;">선택된 장소</h6>
-								<h3 id = "cplace" style = "margin-top: 2px;">장소를 선택하세요.</h3>
+								<h3 id = "cplace" style = "margin-top: 2px;">${pr.rPlace }</h3>
 								<input id = "cplaceName" name = "rPlace" style = "display: none;"></input>
-								<input id = "cplaceX" name = "rPlaceX" style = "display: none;"></input>
-								<input id = "cplaceY" name = "rPlaceY" style = "display: none;"></input>
+								<input id = "cplaceX" name = "rPlaceX" value="${pr.rPlaceX }" style = "display: none;"></input>
+								<input id = "cplaceY" name = "rPlaceY" value="${pr.rPlaceY }" style = "display: none;"></input>
 							</td>
 						</tr>
 					</table>
@@ -432,7 +432,7 @@ input, select{
 						<tr>
 							<td style = "width: 30%"><h4>날짜</h4></td>
 							<td style = "width: 40%"><h6 style = "margin: 0px;">선택된 날짜</h6>
-							<h4 id = "dayInfo" style = "font-size: 22px; margin-top: 0px; margin-bottom: 0px;">날짜를 선택하세요.</h4></td>
+							<h4 id = "dayInfo" style = "font-size: 22px; margin-top: 0px; margin-bottom: 0px;">${pr.rDay }</h4></td>
 							<td style = "width: 40%">
 							<input type = "text" id = "mDayInfo" name = "rDay" style = "display: none;"></input>
 							</td>
@@ -441,6 +441,7 @@ input, select{
 							<td><h4>시작 시간</h4></td>
 							<td>
 								<select name = "rsHour" style = "width: 100px; text-align: center;">
+									<option value = "rsHour">${pr.rsHour }</option>
 									<%for(int i = 0 ; i<10 ; i++){ %>
 									<option value = "0<%=i%>">0<%=i%></option>
 									<%}%>
@@ -452,6 +453,7 @@ input, select{
 							</td>
 							<td>
 								<select name = "rsMin" style = "width: 100px;">
+									<option value = "0"> ${pr.rsMin }</option>
 									<option value = "00">00</option>
 									<option value = "10">10</option>
 									<option value = "20">20</option>
@@ -466,6 +468,7 @@ input, select{
 							<td><h4>종료 시간</h4></td>
 							<td>
 								<select name ="rfHour" style = "width: 100px;">
+									<option value = "rfHour">${pr.rfHour }</option>
 									<%for(int i = 0 ; i<10 ; i++){ %>
 									<option value = "0<%=i%>">0<%=i%></option>
 									<%}%>
@@ -477,6 +480,7 @@ input, select{
 							</td>
 							<td>
 								<select name ="rfMin" style = "width: 100px;">
+									<option value = "0">${pr.rfMin }</option>
 									<option value = "00">00</option>
 									<option value = "10">10</option>
 									<option value = "20">20</option>
@@ -504,7 +508,7 @@ input, select{
 		<div class="res-step-form col-md-8 col-md-offset-2 res-form-four" style = "/* border: 3px solid yellow; */ width: 80%; height: 570px;">
 				<div class = "contents" style = "margin-left: 25%; margin-right: 25%; margin-top: 0px;">
 					<h2 style = "padding-top: 50px; margin-top: 0px; margin-bottom: 0px;">남기는말</h2>
-					<textarea id = "mContent" name = "rContent" rows="10" cols="80" style = "resize: none;" value ="" ></textarea>
+					<textarea id = "mContent" name = "rContent" rows="10" cols="80" style = "resize: none;">${pr.rContent }</textarea>
 				</div>
 				<div class = "btns" align="center">
 					<button type="button"
@@ -689,7 +693,7 @@ function getListItem(index, places) {
     el.innerHTML = itemStr;
     el.className = 'item';
 	el.onclick = function (){
-		if(confirm("장소를 선택하시겠습니까?") == false){
+		if(confirm("장소를 바꾸시겠습니까?") == false){
 			return false;
 		}
 		$$("#cplace").html(places.place_name);
