@@ -203,10 +203,13 @@
 				</div>
 				<div id = btnPosition2>
 				<c:url var="tplDelete" value="teamPlayListDelete.pl">
-					<c:param name="rNum" value="${P_RECRUIT.rNum }"/>
+					<c:param name="rNum" value="${pRecruit.rNum }"/>
 				</c:url>
-				<input type = button id = deleteBtn value = "글 삭제하기" onclick="location.href='${tplDelter}'">
-				<input type = button id = modifyBtn value = "글 수정하기" onclick = "location.href='playTeamModify.pl'"> <br> <br>
+				<c:url var="tplModify" value="teamPlayListModifyView.pl">
+					<c:param name="rNum" value="${pRecruit.rNum }"/>
+				</c:url>
+				<input type = button id = deleteBtn value = "글 삭제하기" onclick="location.href='${tplDelete }'">
+				<input type = button id = modifyBtn value = "글 수정하기" onclick="location.href='${tplModify }'"> <br> <br>
 				<input type = button id = applyingBtn value = "신  청  현  황">
 				</div>
 			</div>

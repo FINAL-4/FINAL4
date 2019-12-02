@@ -33,8 +33,14 @@ public class PlayerDao {
 
 	// 팀 용병 등록글 삭제하기
 	public int teamPlayListDelete(int rNum) {
-		System.out.println("다오 삭제 테스트 : " + rNum);
+		// System.out.println("다오 삭제 테스트 : " + rNum);
 		return sqlSession.delete("playerMapper.playTeamDelete", rNum);
+	}
+
+	// 팀 용병 등록글 수정하기
+	public int playTeamModify(P_RECRUIT pr) {
+		System.out.println("다오 수정 테스트 : " + pr);
+		return sqlSession.update("playerMapper.playTeamModify", pr);
 	}
 
 	

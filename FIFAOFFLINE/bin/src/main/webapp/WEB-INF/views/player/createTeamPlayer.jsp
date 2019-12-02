@@ -510,18 +510,16 @@ input, select{
 					<button type="button"
 						class="btn btn-default btn res-btn-orange"
 						data-class=".res-form-four">Back</button>
-					<button type="button" 
-						class="btn" onclick = "submitCreate();"
-						data-class=".res-form-four">Submit</button>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
+					<button class="btn" onclick = "submitCreate();" data-class=".res-form-four">Submit</button>
 				</div>
-			</div>
-		</section>
+		</div>
+		</div>
+		</form>
 	</div>
+	</div>
+</div>
+</section>
+</div>
 </div>
 
 <script type="text/javascript">

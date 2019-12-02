@@ -14,6 +14,8 @@ public interface PlayerService {
 
 	public int teamPlayListDelete(int rNum);
 
+	public int playTeamModify(P_RECRUIT pr);
+
 	
 
 }

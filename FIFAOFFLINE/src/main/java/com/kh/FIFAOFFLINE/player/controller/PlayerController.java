@@ -38,7 +38,7 @@ public class PlayerController {
 	@RequestMapping("playTeamDetail.pl")
 	public ModelAndView playTeamDetail(ModelAndView mv, int rNum) {
 		P_RECRUIT pRecruit = pService.playTeamDetail(rNum);
-		System.out.println("controller test rNum : " + rNum);
+		// System.out.println("controller test rNum : " + rNum);
 		if(pRecruit != null) {
 			mv.addObject("pRecruit", pRecruit);
 			mv.setViewName("player/applyDetailPlayer");
@@ -90,17 +90,34 @@ public class PlayerController {
 		}
 	}
 	
-	// 용병 모집 등록글 수정   
-	@RequestMapping(value="playTeamModify.pl")
-	public String playTeamModify() {
-		return "player/listPlayer";
+	// 용병 모집 등록글 수정뷰로 보냄
+	@RequestMapping("teamPlayListModifyView.pl")
+	public ModelAndView playTeamModifyView(ModelAndView mv, int rNum) {
+		mv.addObject("pr", pService.playTeamDetail(rNum));
+		mv.setViewName("player/modifyTeamPlayer");
+		return mv;
+	}
+	
+	// 용병 모집 등록글 수정
+	@RequestMapping("teamPlayListModify.pl")
+	public ModelAndView playTeamModify(ModelAndView mv, P_RECRUIT pr, HttpServletRequest request) {
+		int result = pService.playTeamModify(pr);
+		System.out.println("컨트롤러 테스트 수정 : " + result);
+		if(result > 0) {
+			mv.setViewName("redirect:playMain.pl");
+		} else {
+			throw new PlayerException("모집글 수정 실패");
+		}
+		return mv;
 	}
 	
 	// 용병 모집 등록글 삭제
-	@RequestMapping(value="teamPlayListDelete.pl")
+	@RequestMapping("teamPlayListDelete.pl")
 	public String teamPlayListDelete(HttpServletRequest request, int rNum) {
+		P_RECRUIT pRecruit = pService.playTeamDetail(rNum);
+		
 		int result = pService.teamPlayListDelete(rNum);
-		System.out.println("삭제 테스트 : " + result);
+		// System.out.println("삭제 테스트 : " + result);
 		if(result > 0) {
 			return "redirect:playMain.pl";
 		} else {

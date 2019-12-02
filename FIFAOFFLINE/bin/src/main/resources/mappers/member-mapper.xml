@@ -3,15 +3,19 @@
 <mapper namespace="memberMapper">
 
   <resultMap type="Member" id="memberResultSet">
-		<id property="userId" column="USER_ID"/>
+  		<id property="userNo" column="USER_NO"/>
+		<result property="userId" column="USER_ID"/>
 		<result property="userPwd" column="USER_PWD"/>
-		<result property="name" column="NAME"/>
+		<result property="userName" column="USER_NAME"/>
 		<result property="userEmail" column="USER_EMAIL"/>
 		<result property="birthDay" column="BIRTHDAY"/>
 		<result property="gender" column="GENDER"/>
 		<result property="phone" column="PHONE"/>
+		<result property="position" column="POSITION"/>
 		<result property="address" column="ADDRESS"/>
 		<result property="status" column="STATUS"/>
+		<result property="aCount" column="A_COUNT"/>
+		<result property="joinDate" column="JOINDATE"/>
 		<!-- 변수명 디비값 -->
   </resultMap>
   
@@ -23,6 +27,10 @@
 	  AND USER_PWD=#{userPwd}
 	  AND STATUS='Y'
   </select>
+  <insert id="insertMember" parameterType="Member">
+  	INSERT INTO MEMBER
+  	VALUES(SEQ_UID.NEXTVAL, #{userId}, #{userEmail}, #{userPwd}, #{userName}, #{birthDay}, #{gender}, #{profile}, #{address}, #{phone}, #{position}, DEFAULT, DEFAULT, SYSDATE)
+  </insert>
   
   
 </mapper>
