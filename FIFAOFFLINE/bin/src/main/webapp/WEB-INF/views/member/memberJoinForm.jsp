@@ -663,7 +663,7 @@ th{
 			} else if (!RRNre.test(rrn)) {
 				$("#checkRRN").css("color", "#f53f29");
 				$("#RRN").css("border", "2px solid #f53f29");
-				$("#checkRRN").text("정확한 생년월일 8자리");
+				$("#checkRRN").text("정확한 생년월일 6자리");
 				rrnCheck  = false;
 			} else {
 				$("#checkRRN").css("color", "blue");
