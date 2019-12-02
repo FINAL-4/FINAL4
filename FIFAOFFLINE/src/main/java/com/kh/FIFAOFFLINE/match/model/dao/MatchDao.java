@@ -1,9 +1,13 @@
 package com.kh.FIFAOFFLINE.match.model.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kh.FIFAOFFLINE.match.model.vo.AppMatch;
 import com.kh.FIFAOFFLINE.match.model.vo.Match;
 
 @Repository("maDao")
@@ -16,4 +20,26 @@ public class MatchDao {
 		
 		return sqlSession.insert("matchMapper.insertMatching", m);
 	}
+
+	public ArrayList<Match> getAllMatchList() {
+		
+		return (ArrayList)sqlSession.selectList("matchMapper.selectAllList");
+	}
+
+	public Match getMatch(int mId) {
+		
+		return (Match)sqlSession.selectOne("matchMapper.selectMatch", mId);
+	}
+
+	public ArrayList<AppMatch> getAppMatchList(int mId) {
+		
+		return (ArrayList)sqlSession.selectList("matchMapper.selectAppMatch", mId);
+	}
+
+	public int appMatch(HashMap<String, Integer> hm) {
+		
+		return sqlSession.insert("matchMapper.insertAppMatching", hm);
+	}
+
+
 }

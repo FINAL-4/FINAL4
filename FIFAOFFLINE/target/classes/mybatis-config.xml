@@ -10,7 +10,7 @@
 	
 		<!-- ======================= 강현모 ========================= -->
 		<typeAlias type="com.kh.FIFAOFFLINE.match.model.vo.Match" alias="Match"/>
-		
+		<typeAlias type="com.kh.FIFAOFFLINE.match.model.vo.AppMatch" alias="AppMatch"/>
 		
 		
 		

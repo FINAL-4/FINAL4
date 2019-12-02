@@ -20,6 +20,15 @@
 	<result property="mStatus" column="M_STATUS"/>
   </resultMap>
   
+  <resultMap type="AppMatch" id="appMatchingResultSet">
+	<id property = "amId" column="AMID"/>
+	<result property="teamNo" column="TEAM_NO"/>
+	<result property="mId" column="MID"/>
+	<result property="appDate" column="APP_DATE"/>
+	<result property="amStatus" column="AM_STATUS"/>
+  </resultMap>
+  
+  
   <insert id="insertMatching" parameterType="Match">
   	INSERT INTO MATCHING
   	VALUES(SEQ_MID.NEXTVAL, #{teamNo}, #{mTitle}, #{mContent}, #{mSystem}, #{dues}, #{mDay}, #{sHour}, #{sMinute}
@@ -27,5 +36,28 @@
   
   </insert>
   
-  
+  <select id="selectAllList" resultMap="matchingResultSet">
+  	SELECT *
+  	FROM MATCHING
+  	WHERE M_STATUS='Y'
+  	ORDER BY CREATE_DATE DESC
+  </select>
+ 
+ <select id="selectMatch" resultMap="matchingResultSet">
+ 	SELECT *
+ 	FROM MATCHING
+ 	WHERE M_STATUS='Y' AND MID=#{mId}
+ </select>
+ 
+ <select id="selectAppMatch" resultMap="appMatchingResultSet">
+ 	SELECT *
+ 	FROM APP_MATCHING
+ 	WHERE AM_STATUS='Y' AND MID=#{mId}
+ </select>
+ 
+ <insert id="insertAppMatching" parameterType="hashmap">
+ 	INSERT INTO APP_MATCHING
+ 	VALUES(SEQ_AMID.NEXTVAL, #{tId}, #{mId}, SYSDATE, 'Y')
+ </insert>
+ 
 </mapper>

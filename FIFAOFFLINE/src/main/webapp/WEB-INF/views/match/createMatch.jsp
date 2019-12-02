@@ -59,6 +59,24 @@
 
 <style>
 
+/* ---------선택된 메뉴 색상 변경-------- */
+#matchMenu .menu__item-name::after,
+#matchMenu .menu__item-name::before{
+	background: red;
+	color: red;
+}
+
+#matchMenu.menu__item::after,
+#matchMenu.menu__item::before{
+   	color: red;
+}
+
+#matchMenu .menu__item-name{
+	color: red;
+}
+/* ----------------------------------- */
+
+
 #map{
 	width: 400px;
 	height: 400px;
@@ -422,6 +440,9 @@ input, select{
 										</div>
 										<div class = "btns" align="center">
 											<button type="button"
+												class="btn" onclick = "goMatch();"
+												data-class="">return</button>
+											<button type="button"
 												class="btn btn-default btn res-btn-gray"
 												data-class=".res-form-one">Next</button>
 										</div>
@@ -578,6 +599,11 @@ input, select{
 	</div>
 
 
+<script type="text/javascript">
+	function goMatch(){
+		location.href="goMatch.ma";
+	}
+</script>
 
 
 <script type="text/javascript">
