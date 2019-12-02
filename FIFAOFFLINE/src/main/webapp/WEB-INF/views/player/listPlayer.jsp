@@ -371,9 +371,6 @@ div[id^="player"]{
 		}, { offset: '100%' } );
 	});
 
-function tdetail(id){
-	location.href="playTeamDetail.pl";
-}
 function playerRecruit(){  
 	location.href="playTeamCreate.pl";
 }

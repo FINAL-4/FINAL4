@@ -5,15 +5,14 @@
   <resultMap type="Member" id="memberResultSet">
   		<id property="userNo" column="USER_NO"/>
 		<result property="userId" column="USER_ID"/>
-		<result property="userEmail" column="USER_EMAIL"/>
 		<result property="userPwd" column="USER_PWD"/>
 		<result property="userName" column="USER_NAME"/>
+		<result property="userEmail" column="USER_EMAIL"/>
 		<result property="birthDay" column="BIRTHDAY"/>
 		<result property="gender" column="GENDER"/>
-		<result property="address" column="ADDRESS"/>
-		<result property="profile" column="PROFILE"/>
-		<result property="position" column="POSITION"/>
 		<result property="phone" column="PHONE"/>
+		<result property="position" column="POSITION"/>
+		<result property="address" column="ADDRESS"/>
 		<result property="status" column="STATUS"/>
 		<result property="aCount" column="A_COUNT"/>
 		<result property="joinDate" column="JOINDATE"/>
@@ -30,7 +29,7 @@
   </select>
   <insert id="insertMember" parameterType="Member">
   	INSERT INTO MEMBER
-  	VALUES(SEQ_UID.NEXTVAL, #{userId}, #{userEmail}, #{userPwd}, #{userName}, #{birthDay}, #{gender}, #{address}, #{profile}, #{phone}, #{position}, DEFAULT, DEFAULT, SYSDATE)
+  	VALUES(SEQ_UID.NEXTVAL, #{userId}, #{userEmail}, #{userPwd}, #{userName}, #{birthDay}, #{gender}, #{profile}, #{address}, #{phone}, #{position}, DEFAULT, DEFAULT, SYSDATE)
   </insert>
   
   

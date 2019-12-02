@@ -49,4 +49,15 @@
 		DELETE FROM P_RECRUIT
 		WHERE R_NUM=#{rNum}
 	</delete>
+	
+	<!-- 용병 모집 등록글 수정 쿼리문 -->
+	<update id="playTeamModify" parameterType="P_RECRUIT">
+		UPDATE P_RECRUIT
+		SET R_TITLE=#{rTitle},
+		    R_PLACE=#{rPlace}, R_PLACE_X=#{rPlaceX}, R_PLACE_Y=#{rPlaceY},
+		    R_DAY=#{rDay}, R_S_HOUR=#{rsHour}, R_S_MIN=#{rsMin}, R_F_HOUR=#{rfHour}, R_F_MIN=#{rfMin},
+		    DEADLINE=#{deadline}, R_MONEY=#{rMoney}, R_CONTENT=#{rContent},
+		    R_M_DATE=SYSDATE
+		WHERE R_NUM=#{rNum}
+	</update>
 </mapper>
