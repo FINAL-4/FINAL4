@@ -3,35 +3,51 @@ package com.kh.FIFAOFFLINE.member.model.vo;
 import java.sql.Date;
 
 public class Member {
-	
+	private int userNo;
 	private String userId;
 	private String userEmail;
 	private String userPwd;
-	private String name;
+	private String userName;
 	private int birthDay;
 	private String gender;
 	private	String profile;
-	private String phone;	
+	private String address;
+	private String phone;
+	private String position;
 	private String status;
 	private int aCount;
+	private Date joinDate;
 	
 	public Member() {
 		super();
 	}
 
-	public Member(String userId, String userEmail, String userPwd, String name, int birthDay, String gender,
-			String profile, String phone, String status, int aCount) {
+	public Member(int userNo, String userId, String userEmail, String userPwd, String userName, int birthDay,
+			String gender, String profile, String address, String phone, String position, String status, int aCount,
+			Date joinDate) {
 		super();
+		this.userNo = userNo;
 		this.userId = userId;
 		this.userEmail = userEmail;
 		this.userPwd = userPwd;
-		this.name = name;
+		this.userName = userName;
 		this.birthDay = birthDay;
 		this.gender = gender;
 		this.profile = profile;
+		this.address = address;
 		this.phone = phone;
+		this.position = position;
 		this.status = status;
 		this.aCount = aCount;
+		this.joinDate = joinDate;
+	}
+
+	public int getUserNo() {
+		return userNo;
+	}
+
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
 	}
 
 	public String getUserId() {
@@ -58,12 +74,12 @@ public class Member {
 		this.userPwd = userPwd;
 	}
 
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public int getBirthDay() {
@@ -90,12 +106,28 @@ public class Member {
 		this.profile = profile;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public String getPhone() {
 		return phone;
 	}
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
 	}
 
 	public String getStatus() {
@@ -114,15 +146,21 @@ public class Member {
 		this.aCount = aCount;
 	}
 
-	@Override
-	public String toString() {
-		return "Member [userId=" + userId + ", userEmail=" + userEmail + ", userPwd=" + userPwd + ", name=" + name
-				+ ", birthDay=" + birthDay + ", gender=" + gender + ", profile=" + profile + ", phone=" + phone
-				+ ", status=" + status + ", aCount=" + aCount + "]";
+	public Date getJoinDate() {
+		return joinDate;
 	}
 
-	
-	
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Member [userNo=" + userNo + ", userId=" + userId + ", userEmail=" + userEmail + ", userPwd=" + userPwd
+				+ ", userName=" + userName + ", birthDay=" + birthDay + ", gender=" + gender + ", profile=" + profile
+				+ ", address=" + address + ", phone=" + phone + ", position=" + position + ", status=" + status
+				+ ", aCount=" + aCount + ", joinDate=" + joinDate + "]";
+	}
 
 	
 	

@@ -10,7 +10,7 @@
 	
 		<!-- ======================= 강현모 ========================= -->
 		<typeAlias type="com.kh.FIFAOFFLINE.match.model.vo.Match" alias="Match"/>
-		
+		<typeAlias type="com.kh.FIFAOFFLINE.match.model.vo.AppMatch" alias="AppMatch"/>
 		
 		
 		
@@ -24,8 +24,9 @@
 		
 		
 		<!-- ======================= 서재웅 ========================= -->
-		<typeAlias type="com.kh.FIFAOFFLINE.player.model.vo.Player" alias="Player"/>
-		
+		<typeAlias type="com.kh.FIFAOFFLINE.player.model.vo.P_RECRUIT" alias="P_RECRUIT"/>
+		<typeAlias type="com.kh.FIFAOFFLINE.player.model.vo.P_LIST" alias="P_LIST"/>
+		<typeAlias type="com.kh.FIFAOFFLINE.player.model.vo.P_ENROLL" alias="P_ENROLL"/>
 		
 		
 		
@@ -33,7 +34,9 @@
 		
 		<!-- ======================= 안효찬 ========================= -->
 		<typeAlias type="com.kh.FIFAOFFLINE.team.model.vo.Team" alias="Team"/>
-		
+		<typeAlias type="com.kh.FIFAOFFLINE.team.model.vo.TeamAD" alias="TeamAD"/>
+		<typeAlias type="com.kh.FIFAOFFLINE.team.model.vo.TeamJoinedMember" alias="TeamJoinedMember"/>
+		<typeAlias type="com.kh.FIFAOFFLINE.team.model.vo.TeamMember" alias="TeamMember"/>
 		
 		
 		

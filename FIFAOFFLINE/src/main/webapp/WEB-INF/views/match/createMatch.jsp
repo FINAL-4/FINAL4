@@ -37,6 +37,8 @@
 				right : 'today,addScheduleBtn' 
 			},
 			select: function(startDate ,endDate){
+			
+				alert($$(this).parent().parent().hasClass("fc-day-top"));
 				
 				if(confirm("날짜를 선택하시겠습니까?") == false){
 					return false;
@@ -47,7 +49,7 @@
 				eDate = endDate.format();
 				$$("#dayInfo").html(sDate);
 				$$("#mDayInfo").val(sDate);
-				$("#calendar").fullCalendar("refetchEvents");
+				$$("#calendar").fullCalendar("refetchEvents");
 				
  			}
 		});
@@ -601,7 +603,7 @@ input, select{
 
 <script type="text/javascript">
 	function goMatch(){
-		location.href="goMatch.ma";
+		location.href='goMatch.ma';
 	}
 </script>
 

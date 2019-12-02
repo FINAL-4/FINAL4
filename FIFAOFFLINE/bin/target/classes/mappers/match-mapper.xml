@@ -1,5 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="matchMapper">
+  <resultMap type="Match" id="matchingResultSet">
+	<id property = "mId" column="MID"/>
+	<result property="teamNo" column="TEAM_NO"/>
+	<result property="mTitle" column="M_TITLE"/>
+	<result property="mContent" column="M_CONTENTS"/>
+	<result property="mSystem" column="M_SYSTEM"/>
+	<result property="dues" column="DUES"/>
+	<result property="mLocationName" column="LOCATION"/>
+	<result property="mLocationX" column="LOCATIONX"/>
+	<result property="mLocationY" column="LOCATIONY"/>
+	<result property="mDay" column="M_DAY"/>
+	<result property="sHour" column="START_HOUR"/>
+	<result property="sMinute" column="START_MINUTE"/>
+	<result property="eHour" column="END_HOUR"/>
+	<result property="eMinute" column="END_MINUTE"/>
+	<result property="createDate" column="CREATE_DATE"/>
+	<result property="mStatus" column="M_STATUS"/>
+  </resultMap>
   
+  <resultMap type="AppMatch" id="appMatchingResultSet">
+	<id property = "amId" column="AMID"/>
+	<result property="teamNo" column="TEAM_NO"/>
+	<result property="mId" column="MID"/>
+	<result property="appDate" column="APP_DATE"/>
+	<result property="amStatus" column="AM_STATUS"/>
+  </resultMap>
+  
+  
+  <insert id="insertMatching" parameterType="Match">
+  	INSERT INTO MATCHING
+  	VALUES(SEQ_MID.NEXTVAL, #{teamNo}, #{mTitle}, #{mContent}, #{mSystem}, #{dues}, #{mDay}, #{sHour}, #{sMinute}
+  			, #{eHour}, #{eMinute}, #{mLocationName}, #{mLocationX}, #{mLocationY}, SYSDATE, 'Y')
+  
+  </insert>
+  
+  <select id="selectAllList" resultMap="matchingResultSet">
+  	SELECT *
+  	FROM MATCHING
+  	WHERE M_STATUS='Y'
+  	ORDER BY CREATE_DATE DESC
+  </select>
+ 
+ <select id="selectMatch" resultMap="matchingResultSet">
+ 	SELECT *
+ 	FROM MATCHING
+ 	WHERE M_STATUS='Y' AND MID=#{mId}
+ </select>
+ 
+ <select id="selectAppMatch" resultMap="appMatchingResultSet">
+ 	SELECT *
+ 	FROM APP_MATCHING
+ 	WHERE AM_STATUS='Y' AND MID=#{mId}
+ </select>
+ 
+ <insert id="insertAppMatching" parameterType="hashmap">
+ 	INSERT INTO APP_MATCHING
+ 	VALUES(SEQ_AMID.NEXTVAL, #{tId}, #{mId}, SYSDATE, 'Y')
+ </insert>
+ 
 </mapper>

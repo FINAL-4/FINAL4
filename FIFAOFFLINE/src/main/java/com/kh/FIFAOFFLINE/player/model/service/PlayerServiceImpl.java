@@ -1,5 +1,7 @@
 package com.kh.FIFAOFFLINE.player.model.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,23 @@ public class PlayerServiceImpl implements PlayerService{
 	@Override
 	public int playTeamCreate(P_RECRUIT pr) {
 		return pDao.playTeamCreate(pr);
-		
 	}
+
+	@Override
+	public ArrayList<P_RECRUIT> teamPlayList() {
+		return pDao.teamPlayList();
+	}
+
+	@Override
+	public P_RECRUIT playTeamDetail(int rNum) {
+		return pDao.playTeamDetail(rNum);
+	}
+
+	@Override
+	public int teamPlayListDelete(int rNum) {
+		System.out.println("써비스 test : " + rNum);
+		return pDao.teamPlayListDelete(rNum);
+	}
+
+	
 }

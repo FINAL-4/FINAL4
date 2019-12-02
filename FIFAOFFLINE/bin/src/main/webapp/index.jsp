@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -18,9 +19,8 @@
 
 <<<<<<< HEAD
 		19일 테스트
- 나도 간다이이이이잇 		서재우 테스트 테스트 
+ 나도 간다이잇잇 서재우 테스트 테스트 
 정인짱짱
-=======
 >>>>>>> refs/remotes/origin/master
 
 		
