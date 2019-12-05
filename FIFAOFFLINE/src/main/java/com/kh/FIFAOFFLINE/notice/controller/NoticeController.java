@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,10 +27,9 @@ import com.kh.FIFAOFFLINE.notice.model.exception.NoticeException;
 import com.kh.FIFAOFFLINE.notice.model.service.NoticeService;
 import com.kh.FIFAOFFLINE.notice.model.vo.Notice;
 import com.kh.FIFAOFFLINE.notice.model.vo.PageInfo;
-import com.kh.FIFAOFFLINE.common.Pagination;
+import com.kh.FIFAOFFLINE.notice.model.vo.Pagination;
 import com.kh.FIFAOFFLINE.member.model.vo.Member;
 import com.kh.FIFAOFFLINE.notice.model.exception.NoticeException;
-
 
 
 @Controller

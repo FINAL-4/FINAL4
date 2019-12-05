@@ -1,16 +1,20 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<%@ page session="false" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%-- <%@ page session="false" %> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "com.kh.FIFAOFFLINE.notice.model.vo.*, java.util.ArrayList"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-	<jsp:include page="../common/header.jsp"/>	
 <body>
-		<div id = "outer" style = "margin-top: 180px;">
+	<jsp:include page="../common/header.jsp"/>
+<!-- 각페이지별 고정  start-->
+	<div id = "outer" style = "margin-top: 180px;">
 			<div class="ha-waypoint" data-animate-down="ha-header-show" data-animate-up="ha-header-subshow" style ="width: 90%; margin: auto;">
 		<div style="height:100%; width:100%; border-bottom:3px solid red;">
 			<div class="example">
@@ -20,12 +24,11 @@
 			<br>
 			<div class="ha-waypoint" data-animate-down="ha-header-shrink" data-animate-up="ha-header-show" style = "height: 1200px; width: 90%;  margin: auto;">
 			<div align="center">
-
-
+	<br><br>
+	<!-- 각 페이지별 고정  end-->
 	
-	<br><br>	
-
-	
+		
+				
 	<h1 align="center">${notice.nId }번 글 상세 보기</h1>
 	
 	<br><br>
@@ -44,8 +47,15 @@
 			<td>${notice.nWriter }</td>
 		</tr>
 		<tr>
+<%-- 			<td>작성날짜</td>
+			<td>
+				<fmt:formatDate value="${notice.nCreateDate}" pattern="yyyy-MM-dd H:mm:ss" />
+			</td> --%>
 			<td>작성날짜</td>
-			<td>${notice.nCreateDate }</td>
+			<td>
+				<fmt:formatDate value="${notice.nCreateDate}" pattern="yyyy-MM-dd H:mm:ss" />
+
+			</td>
 		</tr>
 		<tr>
 			<td>내용</td>
@@ -62,7 +72,7 @@
 					</a>
 				</td>
 			</tr>
-		</c:if>
+		</c:if> 
 		
 		<!-- 공지사항 쓰기와 공지사항 상세보기가 끝나면 이제 수정이랑 삭제를 해보자. -->
 		<c:url var="nupView" value="nupView.do">
@@ -71,19 +81,20 @@
 		<c:url var="ndelete" value="ndelete.do">
 			<c:param name="nId" value="${notice.nId }"/>
 		</c:url>
-		<c:if test="${loginUser.id eq notice.nWriter }">
+<%-- 		<c:if test="${loginMember.id eq notice.nWriter }">  --%>
 			<tr>
 				<td colspan="2" align="center">
 					<a href="${nupView }">수정 페이지로 이동</a> &nbsp;&nbsp;
 					<a href="${ndelete }">삭제하기</a>
 				</td>
 			</tr>
-		</c:if>
+ <%-- 		</c:if> --%>
 		
 	</table>
 	<!-- 일단은 여기까지 하고 공지사항 글쓰기를 완성해보자 noticeListView로 ㄱㄱ-->
 	
-	<script>
+	
+<script>
 	var $head = $( '#ha-header' );
 	$( '.ha-waypoint' ).each( function(i) {
 		var $el = $( this ),
@@ -111,8 +122,10 @@
 			$(this).toggleClass('clicked');
 		});
 	});
-</script>
-<jsp:include page="../common/footer.jsp"/>	
-
+</script>	
+<jsp:include page="../common/footer.jsp"/>
+	
+	
 </body>
+
 </html>

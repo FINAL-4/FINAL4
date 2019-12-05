@@ -31,12 +31,17 @@
   	WHERE NID=#{nId}
   </select>
   
-  <insert id="insertNotice" parameterType="Notice">
+   <insert id="insertNotice" parameterType="Notice">
   	INSERT INTO NOTICE VALUES(
-  		SEQ_NID.NEXTVAL, #{nTitle}, #{nWriter}, #{nContent}, SYSDATE, SYSDATE, #{filePath}
+  		SEQ_NID.NEXTVAL, '1', #{nTitle}, #{nContent}, #{nWriter}, #{nCount}, SYSDATE, SYSDATE, 'Y', #{filePath}
   	)
-  </insert>
+  </insert> 
   
+<!-- 	<insert id="insertNotice" parameterType="Notice"> 
+		INSERT INTO NOTICE VALUES(
+		SEQ_NID.NEXTVAL, #{userName}, #{nTitle}, #{nContent}, #{nWriter}, #{nCount}, SYSDATE, SYSDATE, 'Y', #{filePath}
+    </insert> -->
+    
   <update id="updateNotice" parameterType="Notice">
  	UPDATE NOTICE
  	SET NTITLE=#{nTitle},
